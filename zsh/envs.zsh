@@ -1,12 +1,8 @@
-# TERM
-# export TERM=screen-256color
-
 # COLORS
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 ## LSCOLORS has the ability to use 11 different indicators to set background and foreground colors:
-
 # 1 = directory
 # 2 = symbolic link
 # 3 = socket
@@ -38,4 +34,14 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # H bold light grey; looks like bright white
 # x default foreground or background
 
-# PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\W\$ \[\033[00m\]'
+export PAGER="/usr/bin/less"
+export MANPAGER="/usr/bin/less"
+export EDITOR="/usr/bin/vim"
+export GIT_EDITOR="/usr/bin/vim"
+export NOSE_REDNOSE=1
+
+export HISTFILE=~/.zsh_histfile
+export HISTCONTROL=ignoredups
+export HISTSIZE=50000
+export SAVEHIST=50000
+export DIRSTACKSIZE=12

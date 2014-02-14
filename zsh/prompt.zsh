@@ -73,3 +73,24 @@ function precmd {
 
     GITBRANCH=$GITBRANCH
 }
+
+# VCS_INFO #
+# ======== #
+setopt promptsubst
+autoload -Uz vcs_info
+# Enable only a subset of possible vcs
+zstyle ':vcs_info:*' enable git svn
+# Enable changes monitoring (only git)
+zstyle ':vcs_info:git:*' check-for-changes true
+# Strings used when there are staged/unstaged changes
+zstyle ':vcs_info:git:*' unstagedstr '?'
+zstyle ':vcs_info:git:*' stagedstr '!'
+# Standard vcs string
+# %{N} is the color switcher ex. %F{5} is violet
+# %f is the 'reset color' escape
+zstyle ':vcs_info:*'           formats       '%F{3}-%F{5}[%F{2}%b%c%u%F{5}]%f '
+zstyle ':vcs_info:*'           actionformats '%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:(svn|bzr):*' branchformat  '%b%F{1}:%F{3}%r'
+
+precmd () { vcs_info }
+PS1='%B%F{2}%n@%m%b %F{3}%~ ${vcs_info_msg_0_}%f%# '

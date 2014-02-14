@@ -1,116 +1,49 @@
-# Autoload zsh MAGIC! (all functions).
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
 
-for func in $^fpath.zwc(N-.r:); autoload -U -w $func
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
 
-HISTFILE=~/.zsh_histfile
-HISTCONTROL=ignoredups
-HISTSIZE=50000
-SAVEHIST=50000
-DIRSTACKSIZE=12
-
-# export PATH=/usr/local/bin:$PATH
-
-# Moving accross directory
 setopt autocd
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
-# Globbing
 setopt extendedglob nomatch
-
-# History
 setopt histignorealldups append_history share_history inc_append_history
 unsetopt beep
-
-# Ensure Vim mode
-# bindkey -v
-# emacs
 bindkey -e
 
-# Freccette di Fabrizio
+# Arrows for history
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-# Completion
-zstyle :compinstall filename "$HOME/.zshrc"
-zstyle ':completion:*' special-dirs true
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
 
-autoload -Uz compinit
-compinit
-
-# Colors
-autoload colors zsh/terminfo
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-  colors
-fi
-for file in $HOME/.dotfiles/zsh/[0-9][0-9]-*; do
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}; do
   source $file
 done
 
-# Defines ls completion colors
-# eval `dircolors -b`
-zstyle ':completion:*' list-colors "$LSCOLORS"
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
+  source $file
+done
 
-#Extend Path
-if [ -d ~/bin ]; then
-  PATH=~/bin:"${PATH}"
-fi
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit
+compinit
 
-export PAGER="/usr/bin/less"
-export MANPAGER="/usr/bin/less"
-export EDITOR="/usr/bin/vim"
-export GIT_EDITOR="/usr/bin/vim"
-export NOSE_REDNOSE=1
+# colors
+autoload colors && colors
+autoload -U promptinit && promptinit
 
-# export TERM="xterm-256color"
-# export TERM="screen-256color"
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}; do
+  source $file
+done
 
-# DIRECTORIES HASHES
-hash -d doc=/usr/share/doc
-# END OF HASHES
-
-# VCS_INFO #
-# ======== #
-setopt promptsubst
-autoload -Uz vcs_info
-
-# Enable only a subset of possible vcs
-zstyle ':vcs_info:*' enable git svn
-
-# Enable changes monitoring (only git)
-zstyle ':vcs_info:git:*' check-for-changes true
-
-# Strings used when there are staged/unstaged changes
-zstyle ':vcs_info:git:*' unstagedstr '?'
-zstyle ':vcs_info:git:*' stagedstr '!'
-
-# Standard vcs string
-# %{N} is the color switcher ex. %F{5} is violet
-# %f is the 'reset color' escape
-zstyle ':vcs_info:*'           formats       '%F{3}-%F{5}[%F{2}%b%c%u%F{5}]%f '
-zstyle ':vcs_info:*'           actionformats '%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:(svn|bzr):*' branchformat  '%b%F{1}:%F{3}%r'
-
-precmd () { vcs_info }
-PS1='%B%F{2}%n@%m%b %F{3}%~ ${vcs_info_msg_0_}%f%# '
-
-# RVM
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# RBENV
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# NVM
-source ~/.nvm/nvm.sh
-
-# GoLang
-export GOPATH=$HOME/Works/Projects/go-code/
-export PATH=$PATH:$GOPATH/bin # add Go binaries in default $PATH
-alias='gofmt -s -tabs=false -tabwidth=2'
-
-# tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-# txtatus
-export TXTATUS_TOKEN="1689cccfc03dfa6b74f3f3cbeb461bc7"
-
-# python stuff and homebrew
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+unset config_files

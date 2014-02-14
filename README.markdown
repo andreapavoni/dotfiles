@@ -1,6 +1,6 @@
 # ~/.dotfiles
 
-## Tnstall
+## Install
 
 - `git clone git://github.com/apeacox/dotfiles ~/.dotfiles`
 - `cd ~/.dotfiles`

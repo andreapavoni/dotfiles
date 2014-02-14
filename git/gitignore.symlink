@@ -1,0 +1,16 @@
+*.sw[nop]
+.DS_Store
+.bundle
+.sass-cache
+.rake_tasks~
+db/*.sqlite3
+log/*.log
+tmp/**/*
+!tmp/cache/.keep
+public/system
+.powder
+.rvmrc
+database.yml
+.plumber-pane
+bin/stubs/*
+

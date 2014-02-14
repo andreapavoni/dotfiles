@@ -1,0 +1,43 @@
+[user]
+	name = Andrea Pavoni
+	email = andrea.pavoni@gmail.com
+[core]
+  editor = vim
+	excludesfile = /Users/andrea/.gitignore_global
+[commit]
+  template = ~/.git-commit-template
+[color]
+  ui = true
+  [color "status"]
+    added = green
+    changed = yellow
+    untracked = cyan
+  [color "branch"]
+    current = green
+    local = yellow
+    remote = red
+[push]
+  branch = current
+[pull]
+  branch = current
+[merge]
+	tool = opendiff
+[github]
+  user = apeacox
+
+[alias]
+  c = commit -m
+  co = checkout
+  s = status
+  a = add
+  d = diff
+  g = !sh -c 'git grep $1' -
+  dc = diff --cached
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lf = !sh -c 'git lg --grep=$1' -
+  ld = log -p
+  sm = submodule
+  ; report = !git log --author=\"$(git config user.name)\" --since='2 sunday ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges
+  report = !git log --author=\"$(git config user.name)\" --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges
+	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+  pr = pull --rebase

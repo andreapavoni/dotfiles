@@ -1,0 +1,16 @@
+---
+
+# enable automatic updating of repository metadata
+:update_sources: true
+
+# verbosity of the gem command. false, true, and :really are the levels
+:verbose: true
+
+# threshold for switching to bulk synchronization
+:bulk_threshold: 1000
+
+# hide stack backtrace on errors
+:backtrace: false
+
+# do not generate documentation for gems
+gem: --no-ri --no-rdoc

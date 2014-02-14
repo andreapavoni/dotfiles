@@ -1,0 +1,69 @@
+# Command prefix
+set -g prefix C-a
+unbind-key C-b
+bind C-a send-prefix
+
+# Screen and mouse stuff
+set -g mode-mouse          on
+set -g mouse-utf8          on
+set -g monitor-activity    on
+set -g utf8                on
+set -g mouse-select-pane   on
+set -g mouse-select-window on
+set -g mouse-resize-pane   on
+set -g status-utf8         on
+set -g repeat-time         200
+set -g default-terminal    "screen-256color"
+
+# Do not choose a title for me
+setw -g automatic-rename on
+
+# Set pbcopy/vim's * register to work inside of tmux
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# Index windows from 1, not 0, so they line up a little better
+# with the order of the number keys on the keyboard
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Clean screen
+bind -n C-p send-keys -R \; clear-history \; display "clean!"
+
+# Copy and paste vim style
+unbind [
+bind Escape copy-mode
+bind -t vi-copy 'v' begin-selection
+bind -t vi-copy 'y' copy-selection
+unbind p
+bind p paste-buffer
+
+# Manage windows, panes and session
+bind w new-window
+bind-key c kill-pane
+bind-key k confirm-before -p "Kill window #W?"  kill-window
+bind-key q confirm-before -p "Kill session #S?" kill-session
+
+# Split windows
+bind v split-window -h
+bind s split-window -v
+
+# Navigate panes like vim
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# C-a-l / C-a-l Navigate windows
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# Resizing panes
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Reload config
+bind r source-file ~/.tmux.conf \; display "~/.tmux.conf reloaded!"
+
+set -g default-terminal "xterm-256color"

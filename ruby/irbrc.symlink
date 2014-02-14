@@ -1,0 +1,69 @@
+#!/usr/bin/ruby
+
+require 'irb/completion'
+require 'irb/ext/save-history'
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:EVAL_HISTORY] = 1000
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+
+begin
+  require 'awesome_print'
+  AwesomePrint.irb!
+rescue LoadError => err
+  warn "Couldn't load awesome_print: #{err}"
+end
+
+class Object
+  # list methods which aren't in superclass
+  def local_methods(obj = self)
+    (obj.methods - obj.class.superclass.instance_methods).sort
+  end
+
+  def interesting_methods
+    case self.class
+    when Class
+      self.public_methods.sort - Object.public_methods
+    when Module
+      self.public_methods.sort - Module.public_methods
+    else
+      self.public_methods.sort - Object.new.public_methods
+    end
+  end
+
+  # print documentation
+  #
+  #   ri 'Array#pop'
+  #   Array.doc
+  #   Array.doc :pop
+  #   arr.doc :pop
+  def doc(method = nil)
+    unless method && method =~ /^[A-Z]/ # if class isn't specified
+      klass = self.kind_of?(Class) ? name : self.class.name
+      method = [klass, method].compact.join('#')
+    end
+    puts `ri '#{method}'`
+  end
+end
+
+module Clipboard
+  def copy(str)
+    IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+    $?.success?
+  end
+
+  def copy_history
+    history = Readline::HISTORY.entries
+    index = history.rindex("exit") || -1
+    content = history[(index+1)..-2].join("\n")
+    copy content
+    content
+  end
+
+  def paste
+    `pbpaste`
+  end
+end
+
+include Clipboard
+

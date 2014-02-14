@@ -1,0 +1,28 @@
+# Awesome print
+begin
+  require 'awesome_print'
+  Pry.config.print = proc { |output, value| output.puts value.ai }
+rescue LoadError => e
+  puts "awesome_print gem is not installed."
+end
+
+# Setup a nicer prompt
+Pry.config.prompt_name = if defined?(Rails)
+  "#{Rails.application.to_app.class.parent.name} "
+else
+  "ruby (#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL})"
+end
+
+# Colorize exceptions
+Pry.config.exception_handler = proc do |output, exception, _|
+  output.puts "\n\033[1;31m#{exception.class}\033[0m: \033[1m#{exception.message}\033[0m"
+  output.puts "  from #{exception.backtrace.join("\n  ")}\n\n"
+end
+
+# Disable Pager (avoids ugly escapes when coloring big objects)
+Pry.config.pager = false
+
+Pry.config.editor = 'vim'
+
+# vim: ft=ruby
+

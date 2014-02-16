@@ -65,9 +65,7 @@ set smartcase   " ... unless they contain at least one capital letter
 " let g:seoul256_background = 235
 " colo seoul256
 set antialias
-" set background=dark
-" set t_Co=256
-" colorscheme distinguished
+set background=dark
 set t_Co=256
 colorscheme noctu
 

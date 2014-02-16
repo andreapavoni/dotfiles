@@ -5,18 +5,34 @@ bind C-a send-prefix
 
 # Screen and mouse stuff
 set -g mode-mouse          on
-set -g mouse-utf8          on
-set -g monitor-activity    on
-set -g utf8                on
 set -g mouse-select-pane   on
 set -g mouse-select-window on
 set -g mouse-resize-pane   on
-set -g status-utf8         on
+set -g mouse-utf8          on
+
+set -g monitor-activity    on
+set -g utf8                on
 set -g repeat-time         200
 set -g default-terminal    "screen-256color"
 
+# Status Bar Items
+set -g status-utf8 on
+set -g status-left-length 40
+set -g status-interval 5
+set -g status-left "#[default]"
+set -g status-right "#%d %b %R [#S:#I]"
+set -g status-justify centre
+
 # Do not choose a title for me
 setw -g automatic-rename on
+
+# Reduce the command delay time to something a bit shorter
+set -sg escape-time 1
+# Extend the repeat interval for repeatable commands (e.g., resize-pane)
+set -sg repeat-time 1000
+# Rate limiting
+set -sg c0-change-trigger 20
+set -sg c0-change-interval 250
 
 # Set pbcopy/vim's * register to work inside of tmux
 set-option -g default-command "reattach-to-user-namespace -l zsh"
@@ -66,4 +82,26 @@ bind -r L resize-pane -R 5
 # Reload config
 bind r source-file ~/.tmux.conf \; display "~/.tmux.conf reloaded!"
 
-set -g default-terminal "xterm-256color"
+# Colors
+# Ensure we're using 256 colors
+set -g default-terminal "screen-256color"
+
+# Status bar
+set -g status-fg white
+set -g status-bg "#333333"
+
+# Window list
+setw -g window-status-fg white
+setw -g window-status-bg default
+setw -g window-status-attr dim
+setw -g window-status-current-fg colour234
+setw -g window-status-current-bg  colour148 #"#9ce576" # "#8b0003" #red
+
+# Pane borders
+set -g pane-border-fg black
+set -g pane-active-border-fg cyan
+
+# Command line
+set -g message-fg white
+set -g message-bg black
+set -g message-attr bright

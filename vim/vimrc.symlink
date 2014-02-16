@@ -68,7 +68,7 @@ set antialias
 " set background=dark
 " set t_Co=256
 " colorscheme distinguished
-" set t_Co=16
+set t_Co=256
 colorscheme noctu
 
 if has("gui_running")
@@ -110,6 +110,20 @@ noremap  <Right> ""
 " Navigate buffers
 noremap <S-left> :bprev<CR>·
 noremap <S-right> :bnext<CR>
+
+" When using tmux/screen, $TERM should be set to screen-256color. this is a
+" fix to use arrow keys correctly
+if &term =~ '^screen'
+  set mouse+=a
+  " tmux knows the extended mouse mode
+  set ttymouse=xterm2
+
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
 
 " Navigate split windows
 nnoremap <c-j> <c-w>j
@@ -159,16 +173,6 @@ au BufWritePre * :call s:clearWhitespaces()
 
 " set ff=unix
 au BufRead,BufNewFile * :set ff=unix
-
-" When using tmux/screen, $TERM should be set to screen-256color. this is a
-" fix to use arrow keys correctly
-if &term =~ '^screen'
-  " tmux will send xterm-style keys when its xterm-keys option is on
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
-endif
 
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']

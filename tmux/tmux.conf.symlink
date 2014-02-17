@@ -14,6 +14,7 @@ set -g monitor-activity    on
 set -g utf8                on
 set -g repeat-time         200
 set -g default-terminal    "screen-256color"
+set-window-option -g xterm-keys on # Proxy keys to terminal (eg: vim)
 
 # Status Bar Items
 set -g status-utf8 on
@@ -96,6 +97,7 @@ setw -g window-status-bg default
 setw -g window-status-attr dim
 setw -g window-status-current-fg colour222
 setw -g window-status-current-bg  colour89
+set -g window-status-activity-attr bold
 
 # Pane borders
 set -g pane-border-fg black

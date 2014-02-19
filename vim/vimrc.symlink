@@ -12,6 +12,7 @@ set nocompatible     " Vim behavior, not Vi.
 
 " Vundle
 source ~/.dotfiles/vim/vundlerc
+
 filetype plugin indent on
 syntax enable        " Enable syntax highlight
 
@@ -62,12 +63,10 @@ set ignorecase  " Searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
 " Apparence
-" let g:seoul256_background = 235
-" colo seoul256
 set antialias
-set background=dark
 set t_Co=256
-colorscheme noctu
+set background=dark
+colorscheme base16-bright
 
 if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo
@@ -245,4 +244,4 @@ let g:airline_enable_branch = 1
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '
 let g:airline_paste_symbol = 'ρ'
-let g:airline_theme='powerlineish'
+let g:airline_theme='base16'

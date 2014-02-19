@@ -8,40 +8,22 @@ then
   source ~/.localrc
 fi
 
-setopt autocd
-setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
-setopt extendedglob nomatch
-setopt histignorealldups append_history share_history inc_append_history
-unsetopt beep
-bindkey -e
-
-# Arrows for history
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-
-# all of our zsh files
+# All of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
-# load the path files
+# Load the path files
 for file in ${(M)config_files:#*/path.zsh}; do
   source $file
 done
 
-# load everything but the path and completion files
+# Load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source $file
 done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit
-compinit
-
-# colors
-autoload colors && colors
-autoload -U promptinit && promptinit
-
-# load every completion after autocomplete loads
+# Load every completion after autocomplete loads
+autoload -U compinit && compinit
 for file in ${(M)config_files:#*/completion.zsh}; do
   source $file
 done

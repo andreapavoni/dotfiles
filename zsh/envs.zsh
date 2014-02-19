@@ -1,7 +1,7 @@
 export PAGER="/usr/bin/less"
 export MANPAGER="/usr/bin/less"
 export EDITOR="vim"
-export GIT_EDITOR="/usr/bin/vim"
+export GIT_EDITOR="vim"
 export NOSE_REDNOSE=1
 
 export HISTFILE=~/.zsh_histfile

@@ -93,4 +93,4 @@ zstyle ':vcs_info:*'           actionformats '%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F
 zstyle ':vcs_info:(svn|bzr):*' branchformat  '%b%F{1}:%F{3}%r'
 
 precmd () { vcs_info }
-PS1='%B%F{2}%n@%m%b %F{3}%~ ${vcs_info_msg_0_}%f%# '
+PS1="%B%F{5}%n@%m%b %F{3}%~ ${vcs_info_msg_0_}%f%# "

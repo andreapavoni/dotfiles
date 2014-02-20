@@ -66,11 +66,11 @@ set smartcase   " ... unless they contain at least one capital letter
 set antialias
 set t_Co=256
 set background=dark
-colorscheme base16-bright
+colorscheme base16-default
 
 if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo
-  source ~/.vim/mvimrc
+  source ~/.dotfiles/vim/mvimrc
 endif
 
 " Highlight the 80th column (works in Vim >= 7.3)
@@ -182,18 +182,7 @@ function! BufferCloser()
 endfunction
 noremap <C-D> :call BufferCloser()<CR>
 
-function! CustomTreeToggle()
-  if !exists("t:NERDTreeBufName") || bufwinnr(t:NERDTreeBufName) == -1
-    if strlen(expand("%:p")) > 0
-      exec ':NERDTreeFind'
-    else
-      exec ':NERDTree'
-    end
-  else
-    exec ':NERDTreeClose'
-  endif
-endfunction
-noremap \\ :call CustomTreeToggle()<cr>
+map \\ :NERDTreeToggle<CR>
 
 " NERD_commenter
 nmap <leader><space> <plug>NERDCommenterComment

@@ -28,12 +28,12 @@ set autoread         " Autoreload buffers
 let mapleader=","
 
 " History, Cursor, Rulers
-" set history=50                                                             " Just remember last 50 commands
-set laststatus=2                                                             " Always display the status line
-set ruler                                                                    " Show the cursor position all the time
-set number                                                                   " Show line numbers
-set showcmd                                                                  " Display incomplete commands
-set cursorline                                                               " Highlight current cursor line
+" set history=50                  " Just remember last 50 commands
+set laststatus=2                  " Always display the status line
+set ruler                         " Show the cursor position all the time
+set number                        " Show line numbers
+set showcmd                       " Display incomplete commands
+set cursorline                    " Highlight current cursor line
 set mouse=a                       " enable mouse support
 set visualbell                    " No beeping.
 
@@ -43,7 +43,7 @@ set hidden                        " Handle multiple buffers better.
 set wildmenu                      " Enhanced command line completion.
 
 " Tabs and white spaces
-set nowrap                        " Don't wrap lines
+set wrap                        " Don't wrap lines
 set tabstop=2                     " Tabs are always 2 spaces
 set softtabstop=2
 set expandtab                     " Expand tabs into spaces
@@ -233,4 +233,4 @@ let g:airline_enable_branch = 1
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '
 let g:airline_paste_symbol = 'ρ'
-let g:airline_theme='base16'
+let g:airline_theme='wombat'

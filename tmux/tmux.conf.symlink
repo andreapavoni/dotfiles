@@ -96,8 +96,8 @@ set -g status-bg "#333333"
 setw -g window-status-fg white
 setw -g window-status-bg default
 setw -g window-status-attr dim
-setw -g window-status-current-fg colour222
-setw -g window-status-current-bg  colour89
+setw -g window-status-current-fg colour233
+setw -g window-status-current-bg  colour4
 set -g window-status-activity-attr bold
 
 # Pane borders

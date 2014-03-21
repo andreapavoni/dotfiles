@@ -66,7 +66,8 @@ set smartcase   " ... unless they contain at least one capital letter
 set antialias
 set t_Co=256
 set background=dark
-colorscheme base16-default
+colorscheme noctu
+" colorscheme solarized
 
 if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo
@@ -200,8 +201,18 @@ let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Execrus
-map <C-E> :call g:Execrus()<CR>
-map <C-\> :call g:Execrus('alternative')<CR>
+" map <C-E> :call g:Execrus()<CR>
+" map <C-\> :call g:Execrus('alternative')<CR>
+
+" Dispatch
+"autocmd FileType java let b:dispatch = 'javac %'
+
+
+" vim-rspec
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
+map <C-E> :call RunCurrentSpecFile()<CR>
+map <C-\> :call RunNearestSpec()<CR>
 
 " Surround
 nmap <leader>s ysiw
@@ -233,4 +244,5 @@ let g:airline_enable_branch = 1
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '
 let g:airline_paste_symbol = 'ρ'
-let g:airline_theme='wombat'
+let g:airline_theme='lucius'
+

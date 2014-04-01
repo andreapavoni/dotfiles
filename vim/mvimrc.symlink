@@ -1,7 +1,6 @@
 set t_Co=256
 set background=dark
-colorscheme tomorrow-night-bright
-" colorscheme macvim
+colorscheme solarized
 
 highlight NonText guifg=#dddddd
 highlight SpecialKey guifg=#dddddd

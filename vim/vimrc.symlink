@@ -67,12 +67,6 @@ set antialias
 set t_Co=256
 set background=dark
 colorscheme noctu
-" colorscheme solarized
-
-if has("gui_running")
-  set guifont=Menlo\ bold:h14  " Font is Menlo
-  source ~/.dotfiles/vim/mvimrc
-endif
 
 " Highlight the 80th column (works in Vim >= 7.3)
 if exists('+colorcolumn')
@@ -169,8 +163,8 @@ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= l
 " automatically clear whitespaces owhen saving buffer
 au BufWritePre * :call s:clearWhitespaces()
 
-" set ff=unix
-au BufRead,BufNewFile * :set ff=unix
+set ff=unix
+au BufRead,BufNewFile *.* :set ff=unix
 
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
@@ -200,13 +194,24 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
-" Execrus
-" map <C-E> :call g:Execrus()<CR>
-" map <C-\> :call g:Execrus('alternative')<CR>
-
 " Dispatch
 "autocmd FileType java let b:dispatch = 'javac %'
 
+" Toggle Quickfix
+nnoremap <C-X> :call QuickfixToggle()<CR>
+let g:quickfix_is_open = 0
+
+function! QuickfixToggle()
+  if g:quickfix_is_open
+    cclose
+    let g:quickfix_is_open = 0
+    execute g:quickfix_return_to_window . "wincmd w"
+  else
+    let g:quickfix_return_to_window = winnr()
+    copen
+    let g:quickfix_is_open = 1
+  endif
+endfunction
 
 " vim-rspec
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
@@ -245,4 +250,10 @@ let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '
 let g:airline_paste_symbol = 'ρ'
 let g:airline_theme='lucius'
+
+if has("gui_running")
+  colorscheme solarized
+  set guifont=Menlo\ bold:h14  " Font is Menlo
+  source ~/.dotfiles/vim/mvimrc
+endif
 

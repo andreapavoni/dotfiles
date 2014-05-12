@@ -222,6 +222,9 @@ map <C-\> :call RunNearestSpec()<CR>
 " Surround
 nmap <leader>s ysiw
 
+" select last paste in visual mode
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep

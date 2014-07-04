@@ -257,6 +257,6 @@ let g:airline_theme='lucius'
 if has("gui_running")
   colorscheme solarized
   set guifont=Menlo\ bold:h14  " Font is Menlo
-  source ~/.dotfiles/vim/mvimrc
+  source ~/.mvimrc
 endif
 

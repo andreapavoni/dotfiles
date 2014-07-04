@@ -1,6 +1,6 @@
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme base16-default
 
 highlight NonText guifg=#dddddd
 highlight SpecialKey guifg=#dddddd

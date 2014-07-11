@@ -260,3 +260,6 @@ if has("gui_running")
   source ~/.mvimrc
 endif
 
+" MiniBufExplorer
+" let g:miniBufExplStatusLineText = ''
+let g:miniBufExplUseSingleClick = 1

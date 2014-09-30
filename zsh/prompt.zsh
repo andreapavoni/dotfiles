@@ -11,8 +11,6 @@ zstyle ':vcs_info:*' enable git
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
     git status --porcelain | grep '??' &> /dev/null ; then
-    # hook_com[unstaged]+='%F{9}*%f'
-    #
     hook_com[unstaged]="%F{4}-%F{3}${hook_com[unstaged]}"
   fi
 }

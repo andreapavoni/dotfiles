@@ -1,9 +1,9 @@
 [user]
-	name = Andrea Pavoni
-	email = andrea.pavoni@gmail.com
+  name = Andrea Pavoni
+  email = andrea.pavoni@gmail.com
 [core]
   editor = vim
-	excludesfile = /Users/andrea/.gitignore_global
+  excludesfile = /Users/andrea/.gitignore_global
 [commit]
   template = ~/.git-commit-template
 [color]
@@ -21,11 +21,12 @@
 [pull]
   branch = current
 [merge]
-	tool = opendiff
+  tool = opendiff
 [github]
   user = apeacox
 
 [alias]
+  b = branch
   c = commit -m
   co = checkout
   s = status
@@ -39,5 +40,6 @@
   sm = submodule
   ; report = !git log --author=\"$(git config user.name)\" --since='2 sunday ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges
   report = !git log --author=\"$(git config user.name)\" --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges
-	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+  today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+  p = push
   pr = pull --rebase

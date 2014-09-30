@@ -21,10 +21,11 @@
 [pull]
   branch = current
 [merge]
-  tool = opendiff
+  ff = only
+[fetch]
+  prune = true
 [github]
   user = apeacox
-
 [alias]
   b = branch
   c = commit -m

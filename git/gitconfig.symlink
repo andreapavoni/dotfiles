@@ -11,7 +11,7 @@
   [color "status"]
     added = green
     changed = yellow
-    untracked = cyan
+    untracked = red
   [color "branch"]
     current = green
     local = yellow

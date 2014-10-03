@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+# Creates a Brewfile with a list of all your brew packages
+
+output = ARGV[0] || "./Brewfile"
+
+File.open(File.expand_path(output), 'w') do |file|
+  `brew list`.split.each_slice(6).to_a.each do |group|
+    file.puts "install #{group.join(' ')}"
+  end
+end
+

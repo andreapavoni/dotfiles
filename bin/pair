@@ -47,7 +47,7 @@ up(){
 
   tmux new-session -d -s pairing "ng connect"
   tmux split-window
-  sleep 0.5 # some delay so tunnel has time to get up
+  sleep 3 # some delay so tunnel has time to get up
   tmux send-keys "pair ssh" C-m
   tmux attach
 }

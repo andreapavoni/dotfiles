@@ -5,25 +5,20 @@ autoload colors && colors
 staged=`git --no-pager diff --stat --cached --color`
 unstaged=`git --no-pager diff --stat --color`
 
-output=$(
-  echo "$fg_bold[blue]branch status$reset_color"
+echo "$fg_bold[blue]branch status$reset_color"
 
-  git -c color.status=always status --short | sed 's/^/ /'
+git -c color.status=always status --short | sed 's/^/ /'
 
-  echo "\n$fg_bold[green]staged diffstat$reset_color"
-  if [[ -n "$staged" ]] ; then
-      echo $staged
-  else
-      echo ' 0 files changed'
-  fi
+echo "\n$fg_bold[green]staged diffstat$reset_color"
+if [[ -n "$staged" ]] ; then
+    echo $staged
+else
+    echo ' 0 files changed'
+fi
 
-  echo "\n$fg_bold[yellow]unstaged diffstat$reset_color"
-  if [[ -n "$unstaged" ]] ; then
-      echo $unstaged
-  else
-      echo ' 0 files changed'
-  fi
-)
-
-echo $output | most
-
+echo "\n$fg_bold[yellow]unstaged diffstat$reset_color"
+if [[ -n "$unstaged" ]] ; then
+    echo $unstaged
+else
+    echo ' 0 files changed'
+fi

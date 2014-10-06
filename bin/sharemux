@@ -1,6 +1,0 @@
-#!/bin/bash
-PORT=${1:-6666}
-echo "guest needs to do 'tweemux on visitor@ngrok.com $PORT' (password: visitor)"
-read foo
-tweemux host
-

@@ -31,6 +31,7 @@
   c = commit -m
   co = checkout
   s = status
+  sd = !git-status-diff
   a = add
   d = diff
   g = !sh -c 'git grep $1' -

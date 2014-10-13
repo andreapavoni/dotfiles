@@ -27,6 +27,7 @@
 [github]
   user = apeacox
 [alias]
+  fetch = fetch --all
   b = branch
   c = commit -m
   co = checkout
@@ -45,3 +46,4 @@
   today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
   p = push
   pr = pull --rebase
+  tr = branch --track

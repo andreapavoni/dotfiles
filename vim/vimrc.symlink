@@ -172,6 +172,7 @@ au BufRead,BufNewFile *.* :set ff=unix
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
 let NERDTreeHijackNetrw=1
+let g:NERDTreeWinPos = "right"
 
 "close NERDTree if open and delete current buffer
 function! BufferCloser()
@@ -251,6 +252,7 @@ let g:airline_enable_syntastic = 0
 let g:airline_enable_bufferline = 0
 let g:airline_enable_branch = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '

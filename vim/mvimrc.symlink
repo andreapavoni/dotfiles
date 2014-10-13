@@ -72,3 +72,6 @@ function s:UpdateNERDTree(...)
     endif
   endif
 endfunction
+
+" Airline theme for macvim
+let g:airline_theme='base16'

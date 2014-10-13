@@ -28,7 +28,6 @@ Bundle 'henrik/vim-qargs'
 Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
-Bundle 'fholgado/minibufexpl.vim'
 
 " Syntaxes
 Bundle 'tpope/vim-haml'

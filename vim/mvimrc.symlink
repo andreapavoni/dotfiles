@@ -5,7 +5,8 @@ colorscheme base16-tomorrow
 highlight NonText guifg=#dddddd
 highlight SpecialKey guifg=#dddddd
 
-set guifont=Menlo:h14
+" set guifont=Meslo:h14
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
 set antialias
 set visualbell
 

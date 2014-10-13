@@ -126,6 +126,9 @@ nnoremap <c-l> <c-w>l
 " Disable K command (:help K)
 nmap K <Nop>
 
+" Search visually selected text
+vnorem // y/<c-r>"<cr>
+
 " Find merge conflict markers
 nmap <silent> <leader>cf <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
@@ -243,11 +246,11 @@ endif
 " Airline
 " Always show the status bar
 set laststatus=2
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_powerline_fonts=1
 let g:airline_enable_syntastic = 0
 let g:airline_enable_bufferline = 0
 let g:airline_enable_branch = 1
+let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '
@@ -259,7 +262,3 @@ if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo
   source ~/.mvimrc
 endif
-
-" MiniBufExplorer
-" let g:miniBufExplStatusLineText = ''
-let g:miniBufExplUseSingleClick = 1

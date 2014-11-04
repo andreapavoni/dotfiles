@@ -12,6 +12,7 @@ set visualbell
 
 set guioptions-=T "remove toolbar
 set guioptions-=r " remove right scrollbar
+set guioptions-=L " remove left scrollbar
 set guioptions-=m " remove menubar
 
 " Fullscreen takes up entire screen

@@ -5,8 +5,10 @@ if [ $# -ne 2 ]; then
   exit -1
 fi
 
+DUMP_FILE="$1.dump"
+
 if heroku pgbackups:capture --expire --app $1 ; then
-  if curl -o latest.dump `heroku pgbackups:url --app $1` ; then
-    pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $USER -d $2 latest.dump
+  if curl -o $DUMP_FILE `heroku pgbackups:url --app $1` ; then
+    pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $USER -d $2 $DUMP_FILE
   fi
 fi

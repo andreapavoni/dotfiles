@@ -171,7 +171,8 @@ au BufRead,BufNewFile *.* :set ff=unix
 
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
-let NERDTreeHijackNetrw=1
+let NERDTreeHijackNetrw =1
+let g:NERDTreeChDirMode = 2
 let g:NERDTreeWinPos = "right"
 
 "close NERDTree if open and delete current buffer
@@ -194,16 +195,20 @@ map <Leader>brt :!bundle list --paths=true \| xargs ctags --extra=+f --exclude=.
 " CtrlP
 map <Leader><leader> :CtrlP<CR>
 map <Leader>l :CtrlPBuffer<CR>
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Dispatch
-"autocmd FileType java let b:dispatch = 'javac %'
+autocmd FileType ruby let b:dispatch = 'ruby %'
+
+" Fix Quicfix to not open under NEERDTree on the right
+autocmd FileType qf wincmd J
 
 " Toggle Quickfix
 nnoremap <C-X> :call QuickfixToggle()<CR>
 let g:quickfix_is_open = 0
+
 
 function! QuickfixToggle()
   if g:quickfix_is_open

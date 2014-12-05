@@ -43,6 +43,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'slim-template/vim-slim'
 Bundle 'wavded/vim-stylus'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'mustache/vim-mustache-handlebars'
 
 " Themes
 Bundle 'chriskempson/base16-vim'

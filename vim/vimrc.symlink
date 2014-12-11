@@ -152,6 +152,10 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 " Make sure all markdown files have the correct filetype set and setup wrapping
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
 
+
+" Treat html.erb.deface files like ERB
+au BufNewFile,BufRead *.html.erb.deface set ft=eruby
+
 " Treat JSON files like JavaScript
 au BufNewFile,BufRead *.json set ft=javascript
 
@@ -199,6 +203,7 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
+
 " Dispatch
 autocmd FileType ruby let b:dispatch = 'ruby %'
 
@@ -208,7 +213,6 @@ autocmd FileType qf wincmd J
 " Toggle Quickfix
 nnoremap <C-X> :call QuickfixToggle()<CR>
 let g:quickfix_is_open = 0
-
 
 function! QuickfixToggle()
   if g:quickfix_is_open

@@ -46,4 +46,4 @@
   today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
   p = push
   pr = pull --rebase
-  tr = branch --track
+  tr = branch --track # g tr <local branch> <remote>/<remote branch>

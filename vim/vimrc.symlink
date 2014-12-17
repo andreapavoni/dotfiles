@@ -66,6 +66,8 @@ set smartcase   " ... unless they contain at least one capital letter
 set antialias
 set t_Co=256
 set background=dark
+set term=screen-256color
+let base16colorspace=256        " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
 
 " Highlight the 80th column (works in Vim >= 7.3)

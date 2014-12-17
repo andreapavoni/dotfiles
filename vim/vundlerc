@@ -47,9 +47,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 
 " Themes
 Bundle 'chriskempson/base16-vim'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'apeacox/vim-distinguished'
-Bundle 'tomasr/molokai'
 " 16 colors colorscheme, for a uniform terminal experience
 Bundle 'noahfrederick/vim-noctu'
 

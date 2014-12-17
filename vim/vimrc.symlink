@@ -66,7 +66,7 @@ set smartcase   " ... unless they contain at least one capital letter
 set antialias
 set t_Co=256
 set background=dark
-colorscheme noctu
+colorscheme base16-tomorrow
 
 " Highlight the 80th column (works in Vim >= 7.3)
 if exists('+colorcolumn')
@@ -269,7 +269,6 @@ let g:airline_paste_symbol = 'ρ'
 let g:airline_theme='lucius'
 
 if has("gui_running")
-  colorscheme solarized
   set guifont=Menlo\ bold:h14  " Font is Menlo
   source ~/.mvimrc
 endif

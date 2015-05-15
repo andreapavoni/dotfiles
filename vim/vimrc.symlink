@@ -150,10 +150,11 @@ au FileType make set noexpandtab
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+" Convert old 1.8 Hash syntax to the new one
+au FileType ruby command! UpdateHashSyntax :%s/:\(\w\+\)\(\s*=>\s*\)/\1: /gc
 
 " Make sure all markdown files have the correct filetype set and setup wrapping
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
-
 
 " Treat html.erb.deface files like ERB
 au BufNewFile,BufRead *.html.erb.deface set ft=eruby
@@ -269,6 +270,9 @@ let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇  '
 let g:airline_paste_symbol = 'ρ'
 let g:airline_theme='lucius'
+
+" vim-go
+let g:go_fmt_autosave = 0
 
 if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo

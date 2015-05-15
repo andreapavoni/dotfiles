@@ -24,5 +24,14 @@ Pry.config.pager = false
 
 Pry.config.editor = 'vim'
 
+# Disable pry-nav command shortcuts
+# https://github.com/pry/pry/issues/492
+begin
+  Pry::Commands.delete 'c'
+  Pry::Commands.delete 'n'
+  Pry::Commands.delete 's'
+rescue
+end
+
 # vim: ft=ruby
 

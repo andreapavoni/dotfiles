@@ -159,8 +159,8 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
 " Treat html.erb.deface files like ERB
 au BufNewFile,BufRead *.html.erb.deface set ft=eruby
 
-" Treat JSON files like JavaScript
-au BufNewFile,BufRead *.json set ft=javascript
+" Treat JavaScript derived files the same way
+au BufNewFile,BufRead *.{json,es6} set ft=javascript
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79

@@ -18,6 +18,7 @@
     remote = red
 [push]
   branch = current
+  default = simple
 [pull]
   branch = current
 [merge]

@@ -1,4 +1,4 @@
-autoload colors; colors
+autoload colors && colors
 
 # The variables are wrapped in %{%}. This should be the case for every
 # variable that does not contain space.

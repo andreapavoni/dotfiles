@@ -1,6 +1,5 @@
-# rehash shims
+# do not rehash shims for speed
 
 if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-  rbenv rehash 2>/dev/null
+  eval "$(rbenv init - --no-rehash)"
 fi

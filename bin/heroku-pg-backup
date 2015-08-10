@@ -7,8 +7,8 @@ fi
 
 DUMP_FILE="$1.dump"
 
-if heroku pgbackups:capture --expire --app $1 ; then
-  if curl -o $DUMP_FILE `heroku pgbackups:url --app $1` ; then
+if heroku pg:backups capture --app $1 ; then
+  if curl -o $DUMP_FILE `heroku pg:backups public-url --app $1` ; then
     pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $USER -d $2 $DUMP_FILE
   fi
 fi

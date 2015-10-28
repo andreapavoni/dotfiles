@@ -4,11 +4,12 @@ unbind-key C-b
 bind C-a send-prefix
 
 # Screen and mouse stuff
-set -g mode-mouse          on
-set -g mouse-select-pane   on
-set -g mouse-select-window on
-set -g mouse-resize-pane   on
-set -g mouse-utf8          on
+set-option -g -q mouse on
+# set -g mode-mouse          on
+# set -g mouse-select-pane   on
+# set -g mouse-select-window on
+# set -g mouse-resize-pane   on
+# set -g mouse-utf8          on
 
 set -g monitor-activity    on
 set -g utf8                on
@@ -32,9 +33,9 @@ setw -g automatic-rename on
 set -sg escape-time 1
 # Extend the repeat interval for repeatable commands (e.g., resize-pane)
 set -sg repeat-time 1000
-# Rate limiting
-set -sg c0-change-trigger 20
-set -sg c0-change-interval 250
+# Rate limiting (not working on v2.1)
+# set -sg c0-change-trigger 20
+# set -sg c0-change-interval 250
 
 # Set pbcopy/vim's * register to work inside of tmux
 set-option -g default-command "reattach-to-user-namespace -l zsh"

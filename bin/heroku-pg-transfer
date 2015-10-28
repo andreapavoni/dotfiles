@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+  echo "Usage: $(basename $0) <heroku-git-remote-src> <heroku-git-remote-dest>"
+  exit -1
+fi
+
+
+if heroku pg:backups capture -r $1 ; then
+  heroku pg:backups restore `heroku pg:backups public-url -r $1` DATABASE -r $2
+fi

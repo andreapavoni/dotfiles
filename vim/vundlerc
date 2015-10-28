@@ -29,6 +29,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'DataWraith/auto_mkdir'
 
 " Syntaxes
 Bundle 'tpope/vim-haml'

@@ -66,9 +66,19 @@ set smartcase   " ... unless they contain at least one capital letter
 set antialias
 set t_Co=256
 set background=dark
-set term=screen-256color
+" set term=screen-256color
 let base16colorspace=256        " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
+
+" neovim
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+if !has('nvim')
+  set term=screen-256color
+endif
+
 
 " Highlight the 80th column (works in Vim >= 7.3)
 if exists('+colorcolumn')
@@ -109,8 +119,10 @@ noremap <S-right> :bnext<CR>
 " fix to use arrow keys correctly
 if &term =~ '^screen'
   set mouse+=a
-  " tmux knows the extended mouse mode
-  set ttymouse=xterm2
+  " tmux and neovim know the extended mouse mode
+  if !has('nvim')
+    set ttymouse=xterm2
+  endif
 
   " tmux will send xterm-style keys when its xterm-keys option is on
   execute "set <xUp>=\e[1;*A"
@@ -279,3 +291,4 @@ if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo
   source ~/.mvimrc
 endif
+

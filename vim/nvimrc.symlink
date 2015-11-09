@@ -2,5 +2,3 @@
 if filereadable($HOME . "/.vimrc")
   source ~/.vimrc
 endif
-
-Plugin 'floobits/floobits-neovim'

@@ -63,10 +63,8 @@ set ignorecase  " Searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
 " Apparence
-set antialias
 set t_Co=256
 set background=dark
-" set term=screen-256color
 let base16colorspace=256        " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
 
@@ -75,8 +73,10 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
 endif
 
+" vim/macvim
 if !has('nvim')
   set term=screen-256color
+  set antialias
 endif
 
 
@@ -134,8 +134,13 @@ endif
 " Navigate split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+if has('nvim')
+  nnoremap <BS> <c-w>h
+endif
+if !has('nvim')
+  nnoremap <c-h> <c-w>h
+endif
 
 " Disable K command (:help K)
 nmap K <Nop>

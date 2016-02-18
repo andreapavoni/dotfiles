@@ -15,7 +15,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Utils
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'wycats/nerdtree'
@@ -30,6 +31,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'DataWraith/auto_mkdir'
+Bundle 'edkolev/tmuxline.vim'
 
 " Syntaxes
 Bundle 'tpope/vim-haml'

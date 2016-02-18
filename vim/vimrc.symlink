@@ -289,6 +289,9 @@ let g:airline_symbols.linenr = '␤ '
 let g:airline_symbols.paste = 'ρ'
 let g:airline_theme='lucius'
 
+" Tmuxline
+let g:tmuxline_preset = 'powerline'
+
 " vim-go
 let g:go_fmt_autosave = 0
 
@@ -296,4 +299,3 @@ if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo
   source ~/.mvimrc
 endif
-

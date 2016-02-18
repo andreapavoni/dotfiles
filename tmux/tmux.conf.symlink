@@ -107,3 +107,6 @@ set -g pane-active-border-fg colour39
 set -g message-fg white
 set -g message-bg black
 set -g message-attr bright
+
+# Load Tmuxline if present
+if-shell "test -f ~/.tmuxline.conf" "source ~/.tmuxline.conf"

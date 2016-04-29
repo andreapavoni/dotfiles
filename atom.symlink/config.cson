@@ -1,0 +1,43 @@
+"*":
+  "autocomplete-elixir":
+    elixirPath: "/usr/local/bin/"
+    erlangHome: "/usr/local/bin/"
+  core:
+    disabledPackages: [
+      "archive-view"
+      "about"
+      "autoflow"
+      "autosave"
+      "background-tips"
+      "bookmarks"
+      "deprecation-cop"
+      "dev-live-reload"
+      "image-view"
+      "language-clojure"
+      "language-csharp"
+      "language-git"
+      "language-java"
+      "language-less"
+      "language-make"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-python"
+      "language-toml"
+      "language-xml"
+      "metrics"
+      "open-on-github"
+      "package-generator"
+      "spell-check"
+      "styleguide"
+      "welcome"
+      "release-notes"
+    ]
+  editor:
+    invisibles: {}
+  "exception-reporting":
+    userId: "66e1f9ec-07b5-1288-288f-8c8b70e273c6"
+  "tree-view":
+    showOnRightSide: true
+  welcome:
+    showOnStartup: false

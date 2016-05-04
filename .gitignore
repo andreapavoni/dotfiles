@@ -1,2 +1,2 @@
-vim/_backup/*
-vim/_temp/*
+.DS_Store
+**/*/.DS_Store

@@ -3,7 +3,7 @@
   email = andrea.pavoni@gmail.com
 [core]
   editor = vim
-  excludesfile = /Users/andrea/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [commit]
   template = ~/.git-commit-template
 [color]
@@ -48,3 +48,9 @@
   p = push
   pr = pull --rebase
   tr = branch --track # g tr <local branch> <remote>/<remote branch>
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

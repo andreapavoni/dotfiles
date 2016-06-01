@@ -32,6 +32,8 @@
       "styleguide"
       "welcome"
       "release-notes"
+      "language-php"
+      "language-c"
     ]
   editor:
     invisibles: {}

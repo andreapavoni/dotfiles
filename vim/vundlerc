@@ -32,6 +32,7 @@ Bundle 'rking/ag.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'DataWraith/auto_mkdir'
 Bundle 'edkolev/tmuxline.vim'
+Bundle 'tpope/vim-obsession'
 
 " Syntaxes
 Bundle 'tpope/vim-haml'

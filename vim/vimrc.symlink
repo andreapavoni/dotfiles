@@ -290,13 +290,25 @@ let g:airline_symbols = {}
 let g:airline_symbols.branch = '⎇  '
 let g:airline_symbols.linenr = '␤ '
 let g:airline_symbols.paste = 'ρ'
-let g:airline_theme='lucius'
+" let g:airline_theme='lucius'
+let g:airline_theme='powerlineish'
 
 " Tmuxline
 let g:tmuxline_preset = 'powerline'
 
 " vim-go
 let g:go_fmt_autosave = 0
+
+" Sessions (vim-obsession)
+function! AutoloadSession()
+  let g:this_obsession = getcwd() . '/.Session.vim'
+  if argc() == 0
+    if !empty(glob("./.Session.vim"))
+      execute 'so ./.Session.vim'
+    endif
+  endif
+endfunction
+autocmd VimEnter * nested call AutoloadSession()
 
 if has("gui_running")
   set guifont=Menlo\ bold:h14  " Font is Menlo

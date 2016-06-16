@@ -6,3 +6,5 @@ chef
 coverage
 perf
 spec/vcr
+node_modules
+_build

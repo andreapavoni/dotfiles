@@ -56,17 +56,18 @@ set backspace=indent,eol,start    " allow backspacing over everything in insert 
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.scssc,*.sassc " Ignore caches and binaries
 
-" Search
-set hlsearch    " Highlight matches
-set incsearch   " Incremental searching
-set ignorecase  " Searches are case insensitive...
-set smartcase   " ... unless they contain at least one capital letter
-
 " Apparence
 set t_Co=256
 set background=dark
 let base16colorspace=256        " Access colors present in 256 colorspace
 colorscheme base16-mocha
+
+" Search
+set hlsearch    " Highlight matches
+set incsearch   " Incremental searching
+set ignorecase  " Searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+highlight Search ctermfg=black ctermbg=yellow guifg=#7e705a guibg=#f4bc87
 
 " neovim
 if has('nvim')
@@ -78,7 +79,6 @@ if !has('nvim')
   set term=screen-256color
   set antialias
 endif
-
 
 " Highlight the 80th column (works in Vim >= 7.3)
 if exists('+colorcolumn')

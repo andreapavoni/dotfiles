@@ -33,6 +33,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'DataWraith/auto_mkdir'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'tpope/vim-obsession'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Syntaxes
 Bundle 'tpope/vim-haml'

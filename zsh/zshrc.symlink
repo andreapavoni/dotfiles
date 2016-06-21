@@ -28,4 +28,10 @@ for file in ${(M)config_files:#*/completion.zsh}; do
   source $file
 done
 
+# Autoload all user-defined functions
+for zdir in $( find $ZSH -type d -name zfunctions ); do
+  fpath=($zdir $fpath)
+  autoload $zdir/*(:t)
+done
+
 unset config_files

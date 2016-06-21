@@ -68,6 +68,7 @@ set incsearch   " Incremental searching
 set ignorecase  " Searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 highlight Search ctermfg=black ctermbg=yellow guifg=#7e705a guibg=#f4bc87
+highlight ColorColumn guibg=#2d2d2d ctermbg=18 ctermfg=246
 
 " neovim
 if has('nvim')

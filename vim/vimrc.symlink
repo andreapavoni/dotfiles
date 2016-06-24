@@ -17,7 +17,7 @@ filetype plugin indent on
 syntax enable        " Enable syntax highlight
 
 set encoding=utf-8   " Use UTF-8 encoding
-set clipboard+=unnamed
+set clipboard=unnamed
 set backupdir=~/.dotfiles/vim/_backup    " where to put backup files.
 set directory=~/.dotfiles/vim/_temp      " where to put swap files.
 set backupskip=/tmp/*,/private/tmp/*
@@ -295,7 +295,27 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_theme='base16'
 
 " Tmuxline
-let g:tmuxline_preset = 'powerline'
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W'],
+      \'x'    : [' ', '#(date +"%d %b %Y %H:%M")'],
+      \'z'    : '#H'}
+" let g:tmuxline_theme = {
+"     \   'a'    : [ 236, 103 ],
+"     \   'b'    : [ 253, 239 ],
+"     \   'c'    : [ 244, 236 ],
+"     \   'x'    : [ 244, 236 ],
+"     \   'y'    : [ 253, 239 ],
+"     \   'z'    : [ 236, 103 ],
+"     \   'win'  : [ 103, 236 ],
+"     \   'cwin' : [ 236, 103 ],
+"     \   'bg'   : [ 244, 236 ],
+"     \ }
+" values represent: [ FG, BG, ATTR ]
+"   FG ang BG are color codes
+"   ATTR (optional) is a comme-delimited string of one or more of bold, dim, underscore, etc.
+"   For details refer to 'message-attr attributes' in tmux man page
 
 " vim-go
 let g:go_fmt_autosave = 0

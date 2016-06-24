@@ -3,7 +3,7 @@
   email = andrea.pavoni@gmail.com
 [core]
   editor = vim
-  excludesfile = /Users/andrea/.gitignore_global
+  excludesfile = /Users/andrea/.gitignore
 [commit]
   template = ~/.git-commit-template
 [color]

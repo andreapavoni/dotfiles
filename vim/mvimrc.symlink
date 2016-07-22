@@ -1,6 +1,8 @@
-set t_Co=256
 set background=dark
-colorscheme base16-tomorrow
+colorscheme one
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 highlight NonText guifg=#dddddd
 highlight SpecialKey guifg=#dddddd

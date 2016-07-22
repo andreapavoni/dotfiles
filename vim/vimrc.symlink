@@ -57,10 +57,15 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.scssc,*.sassc " Ignore caches and binaries
 
 " Apparence
-set t_Co=256
+" set t_Co=256
 set background=dark
-let base16colorspace=256        " Access colors present in 256 colorspace
-colorscheme base16-mocha
+colorscheme one
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" let base16colorspace=256        " Access colors present in 256 colorspace
+" colorscheme base16-mocha
 
 " Search
 set hlsearch    " Highlight matches

@@ -31,7 +31,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'DataWraith/auto_mkdir'
-Plugin 'edkolev/tmuxline.vim'
+" Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-obsession'
 Plugin 'terryma/vim-multiple-cursors'
 

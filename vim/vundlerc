@@ -56,6 +56,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'rakr/vim-one'
 " 16 colors colorscheme, for a uniform terminal experience
 Plugin 'noahfrederick/vim-noctu'
+Plugin 'trevordmiller/nova-vim'
 
 if has_vundle == 0
     echo "Installing Bundles, please ignore key map error messages"

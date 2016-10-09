@@ -48,6 +48,9 @@
     fontSize: 14
     layoutMode: "Compact"
     tabSizing: "Minimum"
+  pigments:
+    extendAutocompleteToColorValue: true
+    extendAutocompleteToVariables: true
   "tree-view":
     showOnRightSide: true
   welcome:

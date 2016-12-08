@@ -50,6 +50,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mxw/vim-jsx'
+Plugin 'posva/vim-vue'
 
 " Themes
 Plugin 'chriskempson/base16-vim'

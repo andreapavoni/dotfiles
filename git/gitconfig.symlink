@@ -2,7 +2,7 @@
   name = Andrea Pavoni
   email = andrea.pavoni@gmail.com
 [core]
-  editor = vim
+  editor = $EDITOR
   excludesfile = /Users/andrea/.gitignore
 [commit]
   template = ~/.git-commit-template
@@ -26,7 +26,7 @@
 [fetch]
   prune = true
 [github]
-  user = apeacox
+  user = andreapavoni
 [alias]
   fetch = fetch --all
   b = branch
@@ -44,7 +44,7 @@
   sm = submodule
   ; report = !git log --author=\"$(git config user.name)\" --since='2 sunday ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges
   report = !git log --author=\"$(git config user.name)\" --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges
-  today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+  report-today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
   p = push
   pr = pull --rebase
   tr = branch --track # g tr <local branch> <remote>/<remote branch>

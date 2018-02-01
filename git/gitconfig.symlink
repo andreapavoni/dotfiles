@@ -16,6 +16,8 @@
     current = green
     local = yellow
     remote = red
+  [color "diff"]
+    whitespace = red
 [push]
   branch = current
   default = simple

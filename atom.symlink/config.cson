@@ -1,4 +1,93 @@
 "*":
+  "atom-beautify":
+    apex:
+      disabled: true
+    arduino:
+      disabled: true
+    c:
+      disabled: true
+    cfml:
+      disabled: true
+    clj:
+      disabled: true
+    cpp:
+      disabled: true
+    crystal:
+      disabled: true
+    cs:
+      disabled: true
+    d:
+      disabled: true
+    ejs:
+      disabled: true
+    fortran:
+      disabled: true
+    general:
+      beautifyEntireFileOnSave: false
+    gherkin:
+      disabled: true
+    glsl:
+      disabled: true
+    handlebars:
+      disabled: true
+    haskell:
+      disabled: true
+    jade:
+      disabled: true
+    java:
+      disabled: true
+    latex:
+      disabled: true
+    less:
+      disabled: true
+    lua:
+      disabled: true
+    markdown:
+      disabled: true
+    marko:
+      disabled: true
+    mustache:
+      disabled: true
+    nginx:
+      disabled: true
+    nunjucks:
+      disabled: true
+    objectivec:
+      disabled: true
+    ocaml:
+      disabled: true
+    pawn:
+      disabled: true
+    perl:
+      disabled: true
+    php:
+      disabled: true
+    puppet:
+      disabled: true
+    python:
+      disabled: true
+    r:
+      disabled: true
+    riot:
+      disabled: true
+    rust:
+      disabled: true
+    spacebars:
+      disabled: true
+    swig:
+      disabled: true
+    tss:
+      disabled: true
+    twig:
+      disabled: true
+    ux:
+      disabled: true
+    vala:
+      disabled: true
+    visualforce:
+      disabled: true
+    xtemplate:
+      disabled: true
   "autocomplete-elixir":
     elixirPath: "/usr/local/bin/"
     erlangHome: "/usr/local/bin/"
@@ -23,7 +112,6 @@
       "language-mustache"
       "language-objective-c"
       "language-perl"
-      "language-toml"
       "language-xml"
       "metrics"
       "open-on-github"
@@ -40,17 +128,31 @@
     ]
   editor:
     fontFamily: "Input"
+    fontSize: 13
     invisibles: {}
   "exception-reporting":
     userId: "66e1f9ec-07b5-1288-288f-8c8b70e273c6"
   "git-diff":
     showIconsInEditorGutter: true
+  "git-projects":
+    ignoredPatterns: "node_modules;\\.git;log;tmp;temp;deps"
+    rootPath: "/Users/andrea/Code"
+    sortBy: "Latest modification date"
+  "markdown-preview":
+    useGitHubStyle: true
   "one-dark-ui":
     fontSize: 14
     tabSizing: "Minimum"
   pigments:
     extendAutocompleteToColorValue: true
     extendAutocompleteToVariables: true
+    sassShadeAndTintImplementation: "bourbon"
+  "platformio-ide-terminal":
+    style:
+      theme: "one-dark"
+    toggles:
+      autoClose: true
+      selectToCopy: false
   tablr:
     copyPaste:
       flattenBufferMultiSelectionOnPaste: true

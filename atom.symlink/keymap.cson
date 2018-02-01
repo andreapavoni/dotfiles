@@ -30,3 +30,6 @@
 
 'body':
   'ctrl--': 'tree-view:toggle-focus'
+
+'atom-workspace':
+  'alt-cmd-o': 'git-projects:toggle-add'

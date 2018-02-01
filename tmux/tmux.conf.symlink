@@ -13,6 +13,7 @@ set -g repeat-time         200
 set -g default-terminal    "screen-256color"
 set-window-option -g xterm-keys on # Proxy keys to terminal (eg: vim)
 set-option -g default-shell /bin/zsh
+set-option -g history-limit 3001
 
 # Status Bar Items
 set -g status-left-length 40

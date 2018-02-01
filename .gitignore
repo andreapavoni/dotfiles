@@ -2,5 +2,5 @@
 **/*/.DS_Store
 **/*/.Session.vim
 .Session.vim
-
-
+atom.symlink/recovery/
+brew/github_token.zsh

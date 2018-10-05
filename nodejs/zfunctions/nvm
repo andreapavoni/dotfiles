@@ -1,6 +1,0 @@
-# Node Version Manager
-# Loading nvm on startup slows it down **a lot**
-# load nvm on demand instead
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-nvm

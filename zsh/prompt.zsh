@@ -17,5 +17,11 @@ zstyle ':vcs_info:*' enable git
 
 precmd () { vcs_info }
 
+# Old
 # PROMPT='%F{5}%F{2}%n@%m%b%F{5} %F{3}%3~ ${vcs_info_msg_0_} %f%# '
-PROMPT='%F{5}%F{2}%m:%b%F{5}%F{5}[%F{3}%3~%F{5}]${vcs_info_msg_0_}%F{1} λ%f '
+
+# Current working
+# PROMPT='%F{5}%F{2}%m:%b%F{5}%F{5}[%F{3}%3~%F{5}]${vcs_info_msg_0_}%F{1} λ%f '
+
+
+PROMPT='%F{5}%F{2}%m:%b%F{5}%F{5}[%F{3}%~%F{5}]${vcs_info_msg_0_}%F{1} λ%f '

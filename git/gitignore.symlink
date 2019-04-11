@@ -15,3 +15,7 @@ database.yml
 bin/stubs/*
 **/*/.Session.vim
 .Session.vim
+.elixir-ls/*
+*.log
+.vscode/
+.env

@@ -13,7 +13,7 @@ set -g repeat-time         200
 set -g default-terminal    "screen-256color"
 set-window-option -g xterm-keys on # Proxy keys to terminal (eg: vim)
 set-option -g default-shell /bin/zsh
-set-option -g history-limit 3001
+set-option -g history-limit 3002
 
 # Status Bar Items
 set -g status-left-length 40
@@ -29,12 +29,6 @@ setw -g automatic-rename on
 set -sg escape-time 1
 # Extend the repeat interval for repeatable commands (e.g., resize-pane)
 set -sg repeat-time 1000
-# Rate limiting (not working on v2.1)
-# set -sg c0-change-trigger 20
-# set -sg c0-change-interval 250
-
-# Set pbcopy/vim's * register to work inside of tmux
-set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Index windows from 1, not 0, so they line up a little better
 # with the order of the number keys on the keyboard
@@ -48,7 +42,9 @@ bind -n C-p send-keys -R \; clear-history \; display "clean!"
 unbind [
 bind Escape copy-mode
 bind -T copy-mode-vi 'v' send-keys -X begin-selection
-bind -T copy-mode-vi 'y' send-keys -X copy-selection
+bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
 unbind p
 bind p paste-buffer
 

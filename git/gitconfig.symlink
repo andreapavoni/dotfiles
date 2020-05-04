@@ -1,6 +1,6 @@
 [user]
-  name = Andrea Pavoni
-  email = andrea.pavoni@gmail.com
+	name = Andrea Pavoni
+	email = andrea.pavoni@gmail.com
 [core]
   editor = $EDITOR
   excludesfile = ~/.gitignore

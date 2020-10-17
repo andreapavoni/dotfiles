@@ -19,3 +19,5 @@ bin/stubs/*
 .vscode/
 .env
 /.elixir_ls/
+*.iml
+.idea/

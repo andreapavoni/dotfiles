@@ -50,3 +50,5 @@
   p = push
   pr = pull --rebase
   tr = branch --track # g tr <local branch> <remote>/<remote branch>
+[init]
+	defaultBranch = master

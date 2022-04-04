@@ -1,23 +1,37 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.toggleterm"
-require "user.project"
-require "user.impatient"
-require "user.indentline"
-require "user.alpha"
-require "user.whichkey"
-require "user.autocommands"
-require "user.nvim-tree"
-require "user.session"
+-- Load All packer plugins
+require('plug')
+
+-- load keybindings and editor options
+require('keymap')
+require('options')
+require('autocmds')
+
+-- load theme loading library
+local scheme = require('lib.scheme') 
+
+-- Load Themes (loads everforest theme by default)
+-- load editor color theme
+-- scheme.load_scheme('everforest')
+
+-- load statusline theme
+-- scheme.load_lualine_scheme('everforest')
+
+-- if you don't  want to specify the theme for each component,
+-- you can use the following function
+scheme.load_shared_scheme('onedark')
+
+-- set the statusline and tabline style
+-- you can change the characters used
+-- for seperators in the statusline and tabline
+-- for instance, we can use bubble characters
+-- scheme.load_global_style({'', ''}, {'', ''})
+
+-- load configurations
+-- config.plug loads plugin configurations
+-- config.lsp handles al lsp server configuration
+-- config.module loads user contrib files (work in progress)
+require('config.lsp')
+require('config.plug')
+require('config.modules')
+
+-- # vim foldmethod=marker

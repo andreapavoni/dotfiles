@@ -7,3 +7,4 @@ brew/github_token.zsh
 config.symlink/configstore/
 bin/chromedriver
 config.symlink/yarn/
+config.symlink/iterm2/

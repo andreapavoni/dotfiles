@@ -63,9 +63,9 @@ end
 
 -- check if lspservers directory exists in data stdpath
 -- and create one if not
-local lspserver_dir = fn.isdirectory(fn.stdpath('data') .. '/lspservers')
+local lspserver_dir = fn.isdirectory(fn.stdpath('data') .. '/lsp_servers')
 if lspserver_dir == 0 then
-	fn.mkdir(fn.stdpath('data') .. '/lspservers')
+	fn.mkdir(fn.stdpath('data') .. '/lsp_servers')
 end
 
 -- }}}

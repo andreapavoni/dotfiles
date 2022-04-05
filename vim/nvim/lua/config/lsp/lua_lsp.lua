@@ -16,7 +16,7 @@ else
 end
 
 -- set the path to the sumneko installation (ABSOLUTE PATH)
-local sumneko_install_path = fn.stdpath('data') .. '/lspservers/lua-language-server'
+local sumneko_install_path = fn.stdpath('data') .. '/lsp_servers/lua-language-server'
 local pathcheck = sumneko_install_path .. '/bin/' .. system_name
 local sumneko_binary
 

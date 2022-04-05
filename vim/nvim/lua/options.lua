@@ -20,7 +20,8 @@ o.errorbells = false -- auditory stimulation annoying
 
 opt.ruler = false -- show line number/column
 opt.hidden = true -- keeps buffers loaded in the background
-opt.ignorecase = true
+opt.ignorecase = true -- case insensitive search
+opt.smartcase = true  -- unless they contain at least one capital letter
 opt.scrolloff = 8 -- buffer starts scrolling 8 lines from the end of view
 opt.incsearch = true
 

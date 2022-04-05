@@ -8,6 +8,7 @@ local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
+
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
@@ -63,10 +64,10 @@ end
 
 -- check if lspservers directory exists in data stdpath
 -- and create one if not
-local lspserver_dir = fn.isdirectory(fn.stdpath('data') .. '/lsp_servers')
-if lspserver_dir == 0 then
-	fn.mkdir(fn.stdpath('data') .. '/lsp_servers')
-end
+-- local lspserver_dir = fn.isdirectory(fn.stdpath('data') .. '/lsp_servers')
+-- if lspserver_dir == 0 then
+-- 	fn.mkdir(fn.stdpath('data') .. '/lsp_servers')
+-- end
 
 -- }}}
 

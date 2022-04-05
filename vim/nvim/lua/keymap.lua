@@ -35,7 +35,7 @@ local M = {}
 vim.g.mapleader = ',' -- Map leader key to comma
 vim.g.maplocalleader = ','
 map('n', '<C-n>', ':nohlsearch<CR>', opt) -- toggle search highlighting
-map('', '<C-c>', ':CommentToggle<CR>', opt) -- toggle comment on current line or selection
+-- map('', '<C-c>', ':CommentToggle<CR>', opt) -- toggle comment on current line or selection
 map('', '\\', ':Neotree toggle<CR>', opt) -- toggle neotree
 -- map('n', '<leader>nf', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
 map('n', '<Tab>', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
@@ -90,15 +90,27 @@ M.gitsigns_mappings = {
 map('n', '<leader>bh', ':bf<CR>', { noremap = true })
 map('n', '<S-Left>', ':bp<CR>', { noremap = true })
 map('n', '<S-Right>', ':bn<CR>', { noremap = true })
-map('n', '<C-d>', ':bdelete<CR>', { noremap = true })
+-- close NeoTree if open and delete current buffer
+map('n', '<C-d>', ':Neotree close<CR> | :bdelete<CR>', { noremap = true })
 -- }}}
 
+
+-- bubble single lines
+map('n', '<C-Up>', 'ddkP', opt)
+map('n', '<C-Down>', 'ddp', opt)
+--  bubble multiple lines
+map('v', '<C-Up>', 'xkP`[V`]', opt)
+map('v', '<C-Down>', 'xp`[V`]', opt)
+
 -- {{{ window navigation
-map('n', '<leader>h', ':wincmd h<CR>', opt)
-map('n', '<leader>j', ':wincmd j<CR>', opt)
-map('n', '<leader>k', ':wincmd k<CR>', opt)
-map('n', '<leader>l', ':wincmd l<CR>', opt)
+map('n', '<C-h>', ':wincmd h<CR>', opt)
+map('n', '<C-j>', ':wincmd j<CR>', opt)
+map('n', '<C-k>', ':wincmd k<CR>', opt)
+map('n', '<C-l>', ':wincmd l<CR>', opt)
 -- }}}
+
+-- disable K command (:help K)
+map('n', 'K', '<Nop>', opt)
 
 -- {{{ terminal commands
 map('n', '<leader><CR>', ':vs | terminal<CR>i', opt)

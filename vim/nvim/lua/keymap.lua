@@ -36,7 +36,7 @@ vim.g.mapleader = ',' -- Map leader key to comma
 vim.g.maplocalleader = ','
 map('n', '<C-n>', ':nohlsearch<CR>', opt) -- toggle search highlighting
 map('', '<C-c>', ':CommentToggle<CR>', opt) -- toggle comment on current line or selection
-map('', '\\', ':NvimTreeToggle<CR>', opt) -- toggle nvimtree
+map('', '\\', ':Neotree toggle<CR>', opt) -- toggle neotree
 -- map('n', '<leader>nf', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
 map('n', '<Tab>', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
 

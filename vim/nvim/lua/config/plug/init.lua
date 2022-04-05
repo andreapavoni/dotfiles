@@ -7,7 +7,6 @@ return {
 	require('config.plug.lualine'),
 	require('config.plug.lspkind'),
 	require('config.plug.bufferline'),
-	require('config.plug.nvimtree'),
 	require('config.plug.gitsigns'),
 	require('config.plug.autopairs'),
 	require('config.plug.telescope'),

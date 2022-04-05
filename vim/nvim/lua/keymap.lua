@@ -34,7 +34,7 @@ local M = {}
 -- {{{ misc bindings
 vim.g.mapleader = ',' -- Map leader key to comma
 vim.g.maplocalleader = ','
-map('n', '<C-n>', ':set rnu!<CR>', opt) -- toggle relative line numbers
+map('n', '<C-n>', ':nohlsearch<CR>', opt) -- toggle search highlighting
 map('', '<C-c>', ':CommentToggle<CR>', opt) -- toggle comment on current line or selection
 map('', '\\', ':NvimTreeToggle<CR>', opt) -- toggle nvimtree
 -- map('n', '<leader>nf', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
@@ -103,7 +103,7 @@ map('n', '<leader>l', ':wincmd l<CR>', opt)
 -- {{{ terminal commands
 map('n', '<leader><CR>', ':vs | terminal<CR>i', opt)
 map('n', '<leader>\\', ':sp | terminal<CR>i', opt)
-map('t', '<C-esc>', '<C-\\><C-n>', opt)
+map('t', '<C-\\>', '<C-\\><C-n>', opt)
 -- }}}
 
 -- {{{ telescope pullup

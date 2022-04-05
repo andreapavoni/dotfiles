@@ -18,7 +18,7 @@ o.modelines = 5 -- number of modelines
 
 o.errorbells = false -- auditory stimulation annoying
 
-opt.ruler = false -- how line number/column
+opt.ruler = false -- show line number/column
 opt.hidden = true -- keeps buffers loaded in the background
 opt.ignorecase = true
 opt.scrolloff = 8 -- buffer starts scrolling 8 lines from the end of view

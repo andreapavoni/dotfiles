@@ -24,7 +24,7 @@ require('packer').startup({
 		-- {{{ utility plugins
 		-- these plugins are all realted to editor configs
 		use({ 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } })
-		use('kdheepak/tabline.nvim')
+		use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 		use({ 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } })
 		use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
 		use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
@@ -53,7 +53,10 @@ require('packer').startup({
 		use('relastle/bluewery.vim')
 		use('haishanh/night-owl.vim')
 		-- }}}
-		--
+
+		-- sessions
+		use {'rmagatti/auto-session', config = function() require('auto-session').setup {} end}
+	
 	end,
 	-- display packer dialouge in the center in a floating window
 	config = {

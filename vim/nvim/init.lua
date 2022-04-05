@@ -20,12 +20,6 @@ local scheme = require('lib.scheme')
 -- you can use the following function
 scheme.load_shared_scheme('onedark')
 
--- set the statusline and tabline style
--- you can change the characters used
--- for seperators in the statusline and tabline
--- for instance, we can use bubble characters
--- scheme.load_global_style({'', ''}, {'', ''})
-
 -- load configurations
 -- config.plug loads plugin configurations
 -- config.lsp handles al lsp server configuration

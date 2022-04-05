@@ -1,8 +1,6 @@
 --[[
-
     autocmds.lua
-    This file defines various autocmds that nii-nvim uses
-
+    This file defines various useful autocmds
 --]]
 
 local cmd = vim.cmd

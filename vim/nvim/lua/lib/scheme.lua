@@ -69,14 +69,6 @@ M.lualine_style_right = ''
 M.lualine_seperator_left = ''
 M.lualine_seperator_right = ''
 
--- tabline styles
-M.tabline_style_left = ''
-M.tabline_style_right = ''
-
--- tabline seperator
-M.tabline_seperator_left = ''
-M.tabline_seperator_right = ''
-
 -- if the scheme bundled with lualine?
 -- used in config/plug/lualine.lua
 M.is_lualine_default = false
@@ -128,9 +120,7 @@ end
 function M.load_global_style(style, seperator)
 	if style and seperator then
 		M.set_lualine_style(style)
-		M.set_tabline_style(style)
 		M.set_lualine_seperator(seperator)
-		M.set_tabline_seperator(seperator)
 	end
 end
 -- }}}
@@ -162,31 +152,6 @@ function M.set_lualine_seperator(choice)
 	end
 end
 -- }}}
-
---{{{ Tabline style loaders
-function M.set_tabline_style(choice)
-	if type(choice) == 'table' then
-		M.tabline_style_left = choice[1]
-		M.tabline_style_right = choice[2]
-	else
-		M.tabline_style_left = ''
-		M.tabline_style_right = ''
-	end
-end
-
--- sets the style for the lualine seperators
--- @param choice table
--- used in config/plus/lualine.lua
-function M.set_tabline_seperator(choice)
-	if type(choice) == 'table' then
-		M.tabline_seperator_left = choice[1]
-		M.tabline_seperator_right = choice[2]
-	else
-		M.tabline_seperator_left = ''
-		M.tabline_seperator_right = ''
-	end
-end
---}}}
 
 -- checks if a scheme has been specified by the user
 -- if not, loads default scheme

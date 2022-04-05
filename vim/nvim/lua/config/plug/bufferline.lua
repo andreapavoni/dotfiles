@@ -12,7 +12,7 @@ require('bufferline').setup({
 		right_mouse_command = 'bdelete! %d',
 		left_mouse_command = 'buffer %d',
 		middle_mouse_command = nil,
-		show_close_icon = 'false',
+		show_close_icon = 'true',
 		seperator_style = 'padded_slant',
 		diagnostics = 'nvim_lsp',
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)

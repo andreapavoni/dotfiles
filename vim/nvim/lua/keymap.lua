@@ -65,29 +65,28 @@ M.cmp_mappings = {
 -- }}}
 
 -- {{{ gitsigns mappings
-M.gitsigns_mappings = {
-	noremap = true,
-	['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-	['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
-	['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-	['v <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-	['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-	['n <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-	['v <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-	['n <leader>gR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-	['n <leader>gp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-	['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-	['n <leader>gS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
-	['n <leader>gU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
-
-	-- Text objects
-	['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-	['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-}
+-- M.gitsigns_mappings = {
+-- 	noremap = true,
+-- 	['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
+-- 	['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
+-- 	['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+-- 	['v <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+-- 	['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+-- 	['n <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+-- 	['v <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+-- 	['n <leader>gR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+-- 	['n <leader>gp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+-- 	['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+-- 	['n <leader>gS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
+-- 	['n <leader>gU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
+--
+-- 	-- Text objects
+-- 	['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+-- 	['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+-- }
 -- }}}
 
 -- {{{ buffer management
-map('n', '<leader>bh', ':bf<CR>', { noremap = true })
 map('n', '<S-Left>', ':bp<CR>', { noremap = true })
 map('n', '<S-Right>', ':bn<CR>', { noremap = true })
 -- close NeoTree if open and delete current buffer
@@ -118,15 +117,64 @@ map('n', '<leader>\\', ':sp | terminal<CR>i', opt)
 map('t', '<C-\\>', '<C-\\><C-n>', opt)
 -- }}}
 
--- {{{ telescope pullup
-map('n', '<leader><leader>', ':Telescope find_files<CR>', { noremap = true })
-map('n', '<leader>fw', ':Telescope live_grep<CR>', { noremap = true })
-map('n', '<leader>fg', ':Telescope git_commits<CR>', { noremap = true })
-map('n', '<leader>fG', ':Telescope git_branches<CR>', { noremap = true })
--- map('n', '<leader>fe', ':lua require(\'telescope.builtin\').symbols({ sources = { \'kaomoji\'}})<CR>', { noremap = true })
+-- {{{ FZF
+-- git is under 'g' except list files that is bound to leader-space
+-- rg is under 'r' except grep project that is bound to leader-/
+map('n', '<leader><leader>', ":FzfLua files<CR>", { noremap = true, silent = true })
+map('n', '<leader>.', ":FzfLua oldfiles<CR>", { noremap = true, silent = true })
+map('n', '<leader>./', ":FzfLua search_history<CR>", { noremap = true, silent = true })
+-- map('n', '<leader>.:', ":FzfLua command_history<CR>", { noremap = true, silent = true })
+map('n', '<leader>:', ":FzfLua resume<CR>", { noremap = true, silent = true })
+map('n', '<leader>.?', ":FzfLua resume<CR>", { noremap = true, silent = true })
+map('n', '<leader>ff', ":FzfLua buffers<CR>", { noremap = true, silent = true })
+-- map('n', '<leader>m', ":FzfLua marks<CR>", { noremap = true, silent = true })
+map('n', '<leader>k', ":FzfLua keymaps<CR>", { noremap = true, silent = true })
+-- map('n', '<leader>r', ":FzfLua registers<CR>", { noremap = true, silent = true })
+-- map('n', '<leader>j', ":FzfLua jump<CR>", { noremap = true, silent = true })
+map('n', '<leader><Space>', ":FzfLua git_files<CR>", { noremap = true, silent = true })
+-- Git
+map('n', '<leader>g', ":FzfLua git_bcommits<CR>", { noremap = true, silent = true })
+map('n', '<leader>gs', ":FzfLua git_status<CR>", { noremap = true, silent = true })
+map('n', '<leader>gp', ":FzfLua git_commits<CR>", { noremap = true, silent = true })
+map('n', '<leader>gb', ":FzfLua git_branches<CR>", { noremap = true, silent = true })
+map('n', '<leader>gc', ":FzfLua changes<CR>", { noremap = true, silent = true })
+-- FZF ripgrep
+map('n', '<leader>f', ":FzfLua grep_curbuf<CR>", { noremap = true, silent = true })
+map('n', '<leader>/', ":FzfLua live_grep<CR>", { noremap = true, silent = true })
+map('n', '<C-f>', ":FzfLua grep_cword<CR>", { noremap = true, silent = true })
+map('v', '<C-f>',":FzfLua grep_visual<CR>", { noremap = true, silent = true })
+map('n', '<C-l>', ":FzfLua grep_last<CR>", { noremap = true, silent = true })
+
+-- LSP Mappings
+-- All lsp function are under 'a'
+-- All lsp diagnostic are under 'd'
+-- All trouble function are under 't'
+map('n', '<Leader>a', ":FzfLua lsp_code_actions<CR>", key_opts)
+map('n', '<Leader>ad', ":FzfLua lsp_definitions<CR>", key_opts)
+map('n', '<Leader>aD', ":FzfLua lsp_declarations<CR>", key_opts)
+map('n', '<Leader>at', ":FzfLua lsp_typedefs<CR>", key_opts)
+map('n', '<Leader>ai', ":FzfLua lsp_implementations<CR>", key_opts)
+map('n', '<Leader>ar', ":FzfLua lsp_references<CR>", key_opts)
+map('n', '<Leader>as', ":FzfLua lsp_document_symbols<CR>", key_opts)
+map('n', '<Leader>aws', ":FzfLua lsp_workspace_symbols<CR>", key_opts)
+map('n', '<Leader>ae', ':lua vim.lsp.diagnostic.goto_next()<CR>', key_opts)
+map('n', '<Leader>aE', ':lua vim.lsp.diagnostic.goto_prev()<CR>', key_opts)
+map('n', '<Leader>af', ':lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>', key_opts)
+map('n', '<Leader>d', ":FzfLua lsp_document_diagnostics<CR>", key_opts)
+map('n', '<Leader>da', ":FzfLua lsp_workspace_diagnostics<CR>", key_opts)
+map("n", "<leader>td", "<cmd>TroubleToggle workspace_diagnostics<cr>", key_opts)
+map("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", key_opts)
+map("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", key_opts)
 -- }}}
 
-map('n', '<leader>s', ':Telescope buffers<CR>', opt)
+
+
+
+
+
+
+
+
 
 -- returns any externally-required keymaps for usage
 return M

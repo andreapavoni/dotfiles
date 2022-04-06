@@ -25,13 +25,15 @@ require('packer').startup({
 		-- these plugins are all realted to editor configs
 		use({ 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } })
 		use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-		use({ 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } })
+		 -- FZF
+		 use {'junegunn/fzf', run = './install --bin'}
+		 use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' } }
+
 		use({"nvim-neo-tree/neo-tree.nvim", branch = "v2.x", requires = { 
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim" 
     }, config = require('config.plug.neotree').config()})
-		use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 		use('windwp/nvim-autopairs')
 		use('terrortylor/nvim-comment')
 		use('sbdchd/neoformat')

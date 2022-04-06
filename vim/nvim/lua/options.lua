@@ -3,7 +3,8 @@
 
 	vim.cmd is like executing a whole command
 	vim.opt is like setting an opt
---]] local cmd = vim.cmd
+--]]
+local cmd = vim.cmd
 local opt = vim.opt
 local g = vim.g
 local o = vim.o
@@ -15,6 +16,7 @@ o.mouse = 'a' -- mouse controls
 o.cursorline = true -- highlight line cursor is in
 o.modeline = true -- enable modlines for files
 o.modelines = 5 -- number of modelines
+o.colorcolumn = '80' -- highlight the 80th column 
 
 o.errorbells = false -- auditory stimulation annoying
 
@@ -43,5 +45,8 @@ opt.splitright = true
 o.completeopt = 'menuone,noselect'
 
 vim.opt.termguicolors = true
+
+-- sessions
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- # vim foldmethod=marker

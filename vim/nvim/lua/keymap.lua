@@ -167,15 +167,6 @@ map("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", {noremap =
 map("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", {noremap = true, silent = true})
 -- }}}
 
-
-
-
-
-
-
-
-
-
 -- returns any externally-required keymaps for usage
 return M
 

@@ -1,10 +1,13 @@
 --[[
 	LSP setup script for default capibilities
 --]]
-local fn = vim.fn
+
+
+local M = {}
 
 -- {{{ on_attach config
-local on_attach = function(client, bufnr)
+function M.on_attach(client, bufnr)
+-- local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -17,7 +20,8 @@ local on_attach = function(client, bufnr)
 
 	-- {{{ Mappings.
 	local opts = { noremap = true, silent = true }
-	buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+	-- elixir not supported
+	-- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 	buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 	buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 	buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -25,13 +29,15 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
 	buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
 	buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+	-- elixir not supported
 	buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 	buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 	buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-	buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+	-- deprecated
+	buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 	buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 	buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-	buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+	buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 	-- }}}
 
 	-- {{{ Set some keybinds conditional on server capabilities
@@ -61,14 +67,13 @@ end
 -- }}}
 
 -- {{{ standard paths for lsp servers
-
--- check if lspservers directory exists in data stdpath
--- and create one if not
--- local lspserver_dir = fn.isdirectory(fn.stdpath('data') .. '/lsp_servers')
--- if lspserver_dir == 0 then
--- 	fn.mkdir(fn.stdpath('data') .. '/lsp_servers')
--- end
-
+-- check if lspservers directory exists in data stdpath and create one if not
+local lspserver_dir = vim.fn.isdirectory(vim.fn.stdpath('data') .. '/lsp_servers')
+if lspserver_dir == 0 then
+	vim.fn.mkdir(vim.fn.stdpath('data') .. '/lsp_servers')
+end
 -- }}}
+
+return M
 
 -- # vim foldmethod=marker

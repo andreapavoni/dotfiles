@@ -34,6 +34,8 @@ require('packer').startup({
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim" 
     }, config = require('config.plug.neotree').config()})
+		use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require('config.plug.neotree').config()})
+	
 		use('windwp/nvim-autopairs')
 		use('terrortylor/nvim-comment')
 		use('sbdchd/neoformat')

@@ -154,7 +154,8 @@ function M.config()
 		}
 	})
 
-	vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+	vim.api.nvim_set_keymap('n', '\\', ":Neotree reveal<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap('n', '<C-\\>', ":Neotree git_status toggle<CR>", { noremap = true, silent = true })
 end
 
 return M

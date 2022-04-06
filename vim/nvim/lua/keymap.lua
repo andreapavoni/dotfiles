@@ -65,7 +65,7 @@ M.cmp_mappings = {
 -- }}}
 
 -- {{{ gitsigns mappings
--- M.gitsigns_mappings = {
+M.gitsigns_mappings = {
 -- 	noremap = true,
 -- 	['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
 -- 	['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
@@ -83,14 +83,14 @@ M.cmp_mappings = {
 -- 	-- Text objects
 -- 	['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
 -- 	['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
--- }
+}
 -- }}}
 
 -- {{{ buffer management
 map('n', '<S-Left>', ':bp<CR>', { noremap = true })
 map('n', '<S-Right>', ':bn<CR>', { noremap = true })
 -- close NeoTree if open and delete current buffer
-map('n', '<C-d>', ':Neotree close<CR> | :bdelete<CR>', { noremap = true })
+map('n', '<C-d>', ':Neotree close<CR> :bdelete<CR>', { noremap = true })
 -- }}}
 
 
@@ -143,7 +143,7 @@ map('n', '<leader>f', ":FzfLua grep_curbuf<CR>", { noremap = true, silent = true
 map('n', '<leader>/', ":FzfLua live_grep<CR>", { noremap = true, silent = true })
 map('n', '<C-f>', ":FzfLua grep_cword<CR>", { noremap = true, silent = true })
 map('v', '<C-f>',":FzfLua grep_visual<CR>", { noremap = true, silent = true })
-map('n', '<C-l>', ":FzfLua grep_last<CR>", { noremap = true, silent = true })
+-- map('n', '<C-l>', ":FzfLua grep_last<CR>", { noremap = true, silent = true })
 
 -- LSP Mappings
 -- All lsp function are under 'a'
@@ -162,7 +162,7 @@ map('n', '<Leader>aE', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = tru
 map('n', '<Leader>af', ':lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>', {noremap = true, silent = true})
 map('n', '<Leader>d', ":FzfLua lsp_document_diagnostics<CR>", {noremap = true, silent = true})
 map('n', '<Leader>da', ":FzfLua lsp_workspace_diagnostics<CR>", {noremap = true, silent = true})
-map("n", "<leader>td", "<cmd>TroubleToggle workspace_diagnostics<cr>", {noremap = true, silent = true})
+map("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {noremap = true, silent = true})
 map("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", {noremap = true, silent = true})
 map("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", {noremap = true, silent = true})
 -- }}}

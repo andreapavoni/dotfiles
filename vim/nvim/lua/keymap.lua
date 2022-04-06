@@ -112,9 +112,8 @@ map('n', '<C-l>', ':wincmd l<CR>', opt)
 map('n', 'K', '<Nop>', opt)
 
 -- {{{ terminal commands
-map('n', '<leader><CR>', ':vs | terminal<CR>i', opt)
-map('n', '<leader>\\', ':sp | terminal<CR>i', opt)
 map('t', '<C-\\>', '<C-\\><C-n>', opt)
+map('n', '<leader>\\', ':ToggleTerm dir=git_dir direction=horizontal<cr>', opt)
 -- }}}
 
 -- {{{ FZF

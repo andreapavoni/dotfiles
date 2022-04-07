@@ -17,7 +17,7 @@ function M.config()
 	-- in the form "LspDiagnosticsSignWarning"
 
 	require("neo-tree").setup({
-		close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 		popup_border_style = "rounded",
 		enable_git_status = true,
 		enable_diagnostics = true,
@@ -106,6 +106,7 @@ function M.config()
 					--"thumbs.db"
 				},
 			},
+			async_directory_scan = false,
 			follow_current_file = true, -- This will find and focus the file in the active buffer every
 																	 -- time the current file is changed while the tree is open.
 			hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
@@ -154,8 +155,8 @@ function M.config()
 		}
 	})
 
-	vim.api.nvim_set_keymap('n', '\\', ":Neotree reveal<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('n', '<C-\\>', ":Neotree git_status toggle<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap('n', '<leader>|', ":Neotree git_status toggle<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap('n', '\\', ":Neotree toggle<CR>", { noremap = true, silent = true })
 end
 
 return M

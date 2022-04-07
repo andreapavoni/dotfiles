@@ -11,7 +11,7 @@ local o = vim.o
 
 cmd('syntax enable') -- syntax highlighting
 o.rnu = false -- relative line numbers
-o.nu = true -- line numbers
+o.number = true -- line numbers
 o.mouse = 'a' -- mouse controls
 o.cursorline = true -- highlight line cursor is in
 o.modeline = true -- enable modlines for files
@@ -19,6 +19,7 @@ o.modelines = 5 -- number of modelines
 o.colorcolumn = '80' -- highlight the 80th column 
 
 o.errorbells = false -- auditory stimulation annoying
+o.clipboard='unnamed' -- use system clipboard
 
 opt.ruler = false -- show line number/column
 opt.hidden = true -- keeps buffers loaded in the background

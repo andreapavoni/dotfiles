@@ -36,8 +36,9 @@ vim.g.mapleader = ',' -- Map leader key to comma
 vim.g.maplocalleader = ','
 map('n', '<C-n>', ':nohlsearch<CR>', opt) -- toggle search highlighting
 -- map('', '<C-c>', ':CommentToggle<CR>', opt) -- toggle comment on current line or selection
-map('', '\\', ':Neotree toggle<CR>', opt) -- toggle neotree
+-- map('', '\\', ':Neotree toggle<CR>', {noremap = true, silent = true}) -- toggle neotree
 -- map('n', '<leader>nf', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
+vim.api.nvim_set_keymap('n', '<leader>|', ":Neotree git_status toggle<CR>", { noremap = true, silent = true })
 map('n', '<Tab>', ':Neoformat<CR>', { noremap = true }) -- format current buffer with neoformat
 
 -- clipboard mappings
@@ -89,8 +90,7 @@ M.gitsigns_mappings = {
 -- {{{ buffer management
 map('n', '<S-Left>', ':bp<CR>', { noremap = true })
 map('n', '<S-Right>', ':bn<CR>', { noremap = true })
--- close NeoTree if open and delete current buffer
-map('n', '<C-d>', ':Neotree close<CR> :bdelete<CR>', { noremap = true })
+map('n', '<C-d>', ':bdelete!<CR>', { noremap = true })
 -- }}}
 
 
@@ -111,9 +111,9 @@ map('n', '<C-l>', ':wincmd l<CR>', opt)
 -- disable K command (:help K)
 map('n', 'K', '<Nop>', opt)
 
--- {{{ terminal commands
-map('t', '<C-\\>', '<C-\\><C-n>', opt)
-map('n', '<leader>\\', ':ToggleTerm dir=git_dir direction=horizontal<cr>', opt)
+-- {{{ toggle terminal with ctrl-\
+map('t', '<C-\\>', '<C-\\><C-n><C-\\>', opt)
+map('n', '<C-\\>', ':lua NTGlobal["terminal"]:toggle()<cr>', opt)
 -- }}}
 
 -- {{{ FZF

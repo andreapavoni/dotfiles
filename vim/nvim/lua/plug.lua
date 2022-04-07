@@ -66,7 +66,7 @@ require('packer').startup({
 		use({'rmagatti/auto-session', config = function() require('auto-session').setup {} end})
 
 		-- terminal utils
-		use({"akinsho/toggleterm.nvim"})
+		use({ 's1n7ax/nvim-terminal', config = require('config.plug.terminal').config()})
 	
 	end,
 	-- display packer dialouge in the center in a floating window

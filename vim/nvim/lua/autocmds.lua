@@ -19,6 +19,6 @@ cmd([[ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"
   \| exe "normal! g`\"" | endif ]])
 
 -- Set default file tpye to unix
-cmd([[ au BufRead,BufNewFile *.* :set ff=unix ]])
+-- cmd([[ au BufRead,BufNewFile *.* :set ff=unix ]])
 
 -- # vim: foldmethod=marker

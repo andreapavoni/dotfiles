@@ -20,6 +20,7 @@ function M.config()
 		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 		popup_border_style = "rounded",
 		enable_git_status = true,
+		git_status_async = true,
 		enable_diagnostics = true,
 		default_component_configs = {
 			indent = {
@@ -67,7 +68,8 @@ function M.config()
 			},
 		},
 		window = {
-			position = "right",
+
+				position = "float",
 			width = 40,
 			mappings = {
 				["<space>"] = "toggle_node",
@@ -117,7 +119,7 @@ function M.config()
 			use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
 																			-- instead of relying on nvim autocmd events.
 			window = {
-				position = "right",
+				position = "float",
 				mappings = {
 					["<bs>"] = "navigate_up",
 					["."] = "set_root",
@@ -131,7 +133,7 @@ function M.config()
 		buffers = {
 			show_unloaded = true,
 			window = {
-				position = "right",
+				position = "float",
 				mappings = {
 					["bd"] = "buffer_delete",
 					["<bs>"] = "navigate_up",

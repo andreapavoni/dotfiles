@@ -57,12 +57,13 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.scssc,*.sassc " Ignore caches and binaries
 
 " Apparence
-" set t_Co=256
+set t_Co=256
+set termguicolors
 set background=dark
 colorscheme one
-if (has("termguicolors"))
-  set termguicolors
-endif
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 " let base16colorspace=256        " Access colors present in 256 colorspace
 " colorscheme base16-mocha
@@ -72,8 +73,8 @@ set hlsearch    " Highlight matches
 set incsearch   " Incremental searching
 set ignorecase  " Searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
-highlight Search ctermfg=black ctermbg=yellow guifg=#7e705a guibg=#f4bc87
-highlight ColorColumn guibg=#2d2d2d ctermbg=18 ctermfg=246
+"highlight Search ctermfg=black ctermbg=yellow guifg=#7e705a guibg=#f4bc87
+"highlight ColorColumn guibg=#2d2d2d ctermbg=18 ctermfg=246
 
 " neovim
 if has('nvim')
@@ -81,15 +82,15 @@ if has('nvim')
 endif
 
 " vim/macvim
-if !has('nvim')
+" if !has('nvim')
   set term=screen-256color
   set antialias
-endif
+" endif
 
 " Highlight the 80th column (works in Vim >= 7.3)
-if exists('+colorcolumn')
+" if exists('+colorcolumn')
   set colorcolumn=80
-endif
+" endif
 
 " Bubble single lines
 nmap <C-Up> ddkP

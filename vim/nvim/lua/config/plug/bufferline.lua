@@ -18,5 +18,11 @@ require('bufferline').setup({
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			return '(' .. count .. ')'
 		end,
+		custom_filter = function(buf_number, buf_numbers)
+      -- filter out filetypes you don't want to see
+      if vim.bo[buf_number].filetype ~= "terminal" then
+        return true
+      end
+		end,
 	},
 })

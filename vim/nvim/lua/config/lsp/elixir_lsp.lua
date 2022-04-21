@@ -10,5 +10,5 @@ local on_attach = require('config.lsp.setup').on_attach
 
 require'lspconfig'.elixirls.setup{
 	on_attach = on_attach,
-	cmd = { elixirls_install_path };
+	cmd = { elixirls_install_path },
 }

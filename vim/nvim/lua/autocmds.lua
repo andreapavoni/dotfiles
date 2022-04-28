@@ -9,16 +9,23 @@ local cmd = vim.cmd
 cmd([[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]])
 
 -- For Go files, use real tabs, not tabs expanded to spaces
-
 cmd([[ au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4 ]])
   
-
 -- Remember last location in file, but not for commit messages.
 -- see :help last-position-jump
 cmd([[ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g`\"" | endif ]])
 
--- Set default file tpye to unix
--- cmd([[ au BufRead,BufNewFile *.* :set ff=unix ]])
+
+-- setup '#' comment prefix for Elixir files
+cmd([[
+	" when you enter a (new) buffer
+	augroup set-commentstring-ag
+		autocmd!
+		autocmd BufEnter *.ex,*.exs :lua vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
+		" when you've changed the name of a file opened in a buffer, the file type may have changed
+		autocmd BufFilePost *.ex,*.exs :lua vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
+	augroup END
+]])
 
 -- # vim: foldmethod=marker

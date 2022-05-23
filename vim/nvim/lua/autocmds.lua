@@ -28,4 +28,10 @@ cmd([[
 	augroup END
 ]])
 
+--local lspGrp = api.nvim_create_augroup("BufWritePre", { clear = true })
+--api.nvim_create_autocmd("BufWritePre", {
+--  pattern = "*",
+--  command = "lua vim.lsp.buf.formatting_sync(nil, 5000)",
+--  group = lspGrp,
+--})
 -- # vim: foldmethod=marker

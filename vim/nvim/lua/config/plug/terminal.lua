@@ -7,7 +7,7 @@ vim.o.hidden = true
 local M = {}
 
 function M.config()
-	require('nvim-terminal').setup({
+	return {
 		window = {
 			-- Do `:h :botright` for more information
 			-- NOTE: width or height may not be applied in some "pos"
@@ -55,7 +55,7 @@ function M.config()
 			-- {keymap = '<leader>4'},
 			-- {keymap = '<leader>5'},
 		},
-	})
+	}
 end
 
 return M

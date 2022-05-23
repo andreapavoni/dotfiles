@@ -1,6 +1,5 @@
 local M = {}
 
-function M.config()
 	-- Unless you are still migrating, remove the deprecated commands from v1.x
 	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
@@ -16,7 +15,8 @@ function M.config()
 	-- NOTE: this is changed from v1.x, which used the old style of highlight groups
 	-- in the form "LspDiagnosticsSignWarning"
 
-	require("neo-tree").setup({
+function M.config()
+	return {
 		close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 		popup_border_style = "rounded",
 		enable_git_status = true,
@@ -155,10 +155,11 @@ function M.config()
 				}
 			}
 		}
-	})
+	}
 
-	vim.api.nvim_set_keymap('n', '<leader>|', ":Neotree git_status toggle<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('n', '\\', ":Neotree toggle<CR>", { noremap = true, silent = true })
 end
+
+vim.api.nvim_set_keymap('n', '<leader>|', ":Neotree git_status toggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '\\', ":Neotree toggle<CR>", { noremap = true, silent = true })
 
 return M

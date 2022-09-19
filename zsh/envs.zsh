@@ -1,7 +1,7 @@
 export PAGER="/usr/bin/less"
 export MANPAGER="/usr/bin/less"
-export EDITOR="/usr/local/bin/nvim"
-export GIT_EDITOR="/usr/local/bin/nvim"
+export EDITOR=`which nvim`
+export GIT_EDITOR=$EDITOR
 export NOSE_REDNOSE=1
 
 export HISTFILE=~/.zsh_histfile

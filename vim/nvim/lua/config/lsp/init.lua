@@ -6,4 +6,5 @@ return {
 	require('config.lsp.eslint_lsp'),
 	require('config.lsp.svelte_lsp'),
 	require('config.lsp.tailwindcss_lsp'),
+	require('config.lsp.rust_lsp'),
 }

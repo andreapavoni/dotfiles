@@ -1,31 +1,32 @@
--- Load All packer plugins
-require('plug')
+require "user.impatient"
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.autocommands"
+require "user.colorscheme"
+require "user.cmp"
 
--- load keybindings and editor options
-require('keymap')
-require('options')
-require('autocmds')
+-- require "user.fzf"
 
--- load theme loading library
-local scheme = require('lib.scheme') 
+require "user.gitsigns"
+require "user.treesitter"
+require "user.autopairs"
+require "user.comment"
+-- remove in favor of nnn?
+-- check docs to know commands
+-- how to hide gitignored files? how to set root? rename? etc...
+require "user.nvim-tree"
 
--- Load Themes (loads everforest theme by default)
--- load editor color theme
--- scheme.load_scheme('everforest')
+-- remove the x on the top-right corner
+require "user.bufferline"
+require "user.lualine"
 
--- load statusline theme
--- scheme.load_lualine_scheme('everforest')
+require "user.toggleterm"
 
--- if you don't  want to specify the theme for each component,
--- you can use the following function
-scheme.load_shared_scheme('onedark')
+require "user.project"
+require "user.illuminate"
+require "user.indentline"
+require "user.alpha"
 
--- load configurations
--- config.plug loads plugin configurations
--- config.lsp handles al lsp server configuration
--- config.module loads user contrib files (work in progress)
-require('config.lsp')
-require('config.plug')
-require('config.modules')
-
--- # vim foldmethod=marker
+-- I want inline errors + quickfix or similar for inspection
+require "user.lsp"

@@ -58,7 +58,6 @@ return packer.startup(function(use)
   use { "ahmedkhalf/project.nvim" }
   use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "goolord/alpha-nvim" }
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
@@ -99,7 +98,13 @@ return packer.startup(function(use)
   use { "lewis6991/gitsigns.nvim" }
 
   -- Sessions
-  use({ 'rmagatti/auto-session' })
+  use { 'rmagatti/auto-session' }
+
+  -- Codeium (codepilot)
+  use { 'Exafunction/codeium.vim' }
+
+  -- Search and replace
+  use { 'windwp/nvim-spectre' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -57,10 +57,10 @@ vim.opt.shiftwidth = 2                          -- the number of spaces inserted
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 
 -- Sessions
-vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- GUI / Neovide
-vim.opt.guifont = { "FiraCode Nerd Font", ":h14" }
+vim.opt.guifont = { "FiraCode Nerd Font", ":h15" }
 if vim.g.neovide then
 	-- vim.opt.guifont = { "Victor Mono", ":h14" }
 	vim.g.neovide_cursor_animation_length = 0

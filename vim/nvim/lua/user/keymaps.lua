@@ -3,9 +3,11 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
+-- Map leader key
+-- keymap("", "<Space>", "<Nop>", opts)
+-- vim.g.mapleader = " "
+vim.g.mapleader = ',' -- Map leader key to comma
+vim.g.maplocalleader = ','
 
 -- Modes
 --   normal_mode = "n",
@@ -16,6 +18,13 @@ vim.g.mapleader = " "
 --   command_mode = "c",
 
 -- Normal --
+
+-- Allow copy paste with macos
+keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
+keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+
 
 -- disable K command (:help K)
 keymap('n', 'K', '<Nop>', opt)
@@ -76,7 +85,7 @@ keymap('n', '<leader>:', ":FzfLua resume<CR>", { noremap = true, silent = true }
 keymap('n', '<leader>.?', ":FzfLua resume<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>ff', ":FzfLua buffers<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>k', ":FzfLua keymaps<CR>", { noremap = true, silent = true })
-keymap('n', '<leader>,', ":FzfLua git_files<CR>", { noremap = true, silent = true })
+keymap('n', '<leader><Space>', ":FzfLua git_files<CR>", { noremap = true, silent = true })
 -- Git
 keymap('n', '<leader>g', ":FzfLua git_bcommits<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>gs', ":FzfLua git_status<CR>", { noremap = true, silent = true })
@@ -122,3 +131,11 @@ keymap("x", "<leader>cc", "<esc><cmd>lua require('Comment.api').toggle.linewise(
 -- Lsp
 -- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 keymap("n", "<Tab>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- Search and replace (spectre)
+keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", opts)
+-- search current word
+keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", opts)
+keymap("v", "<leader>s", "<esc>lua require('spectre').open_visual()<CR>", opts)
+-- search in current file
+keymap("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>", opts)

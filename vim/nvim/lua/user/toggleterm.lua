@@ -15,6 +15,7 @@ toggleterm.setup {
   direction = "horizontal",
   close_on_exit = true,
   shell = vim.o.shell,
+  auto_scroll = false, -- don't automatically scroll to the bottom on terminal output
   float_opts = {
     border = "curved",
   },

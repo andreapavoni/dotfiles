@@ -26,7 +26,7 @@ require "user.toggleterm"
 require "user.project"
 require "user.illuminate"
 require "user.indentline"
-require "user.alpha"
 
 -- I want inline errors + quickfix or similar for inspection
 require "user.lsp"
+require "user.codeium"

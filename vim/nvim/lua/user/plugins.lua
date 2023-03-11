@@ -43,7 +43,7 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
+  -- Main plugins
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" }  -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs" }  -- Autopairs, integrates with both cmp and treesitter
@@ -62,7 +62,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
   use { "lunarvim/darkplus.nvim" }
-  use('joshdick/onedark.vim')
+  use { "joshdick/onedark.vim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" }         -- The completion plugin
@@ -84,11 +84,12 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
   use { "RRethy/vim-illuminate" }
 
-  -- FZF
-  use { 'junegunn/fzf', run = './install --bin' }
-  use { 'ibhagwan/fzf-lua' }
+  -- Telescope
+  use { "nvim-telescope/telescope.nvim", branch = '0.1.x' }
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  use {'nvim-telescope/telescope-ui-select.nvim' }
 
-
+  -- Trouble
   use { "folke/trouble.nvim" }
 
   -- Treesitter

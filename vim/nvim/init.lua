@@ -17,6 +17,8 @@ require "user.comment"
 -- how to hide gitignored files? how to set root? rename? etc...
 require "user.nvim-tree"
 
+require "user.telescope"
+
 -- remove the x on the top-right corner
 require "user.bufferline"
 require "user.lualine"

@@ -87,7 +87,7 @@ return packer.startup(function(use)
   -- Telescope
   use { "nvim-telescope/telescope.nvim", branch = '0.1.x' }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  use {'nvim-telescope/telescope-ui-select.nvim' }
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
 
   -- Trouble
   use { "folke/trouble.nvim" }
@@ -106,6 +106,7 @@ return packer.startup(function(use)
 
   -- Search and replace
   use { 'windwp/nvim-spectre' }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

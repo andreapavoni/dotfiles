@@ -3,13 +3,21 @@ if not status_ok then
   return
 end
 
+local actions = require "telescope.actions"
+
 telescope.setup {
   defaults = {
     path_display = { "smart" },
     file_ignore_patterns = { ".git/", "node_modules" },
     mappings = {
-      -- i = {
-      -- },
+      i = {
+        ["<S-Up>"] = actions.preview_scrolling_up,
+        ["<S-Down>"] = actions.preview_scrolling_down,
+      },
+      n = {
+        ["<S-Up>"] = actions.preview_scrolling_up,
+        ["<S-Down>"] = actions.preview_scrolling_down,
+      },
     },
     layout_config = {
       vertical = { width = 0.9 },

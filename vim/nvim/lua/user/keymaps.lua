@@ -75,54 +75,6 @@ keymap("v", ">", ">gv", opts)
 -- NvimTree
 keymap("n", "\\", ":NvimTreeToggle<CR>", opts)
 
--- {{{ FZF
--- git is under 'g' except list files that is bound to leader-space
--- rg is under 'r' except grep project that is bound to leader-/
--- keymap('n', '<leader><leader>', ":FzfLua files<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>.', ":FzfLua oldfiles<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>./', ":FzfLua search_history<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>:', ":FzfLua resume<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>.?', ":FzfLua resume<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>ff', ":FzfLua buffers<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>k', ":FzfLua keymaps<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader><Space>', ":FzfLua git_files<CR>", { noremap = true, silent = true })
--- -- Git
--- keymap('n', '<leader>g', ":FzfLua git_bcommits<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>gs', ":FzfLua git_status<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>gp', ":FzfLua git_commits<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>gb', ":FzfLua git_branches<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>gc', ":FzfLua changes<CR>", { noremap = true, silent = true })
--- -- FZF ripgrep
--- keymap('n', '<leader>f', ":FzfLua grep_curbuf<CR>", { noremap = true, silent = true })
--- keymap('n', '<leader>/', ":FzfLua live_grep<CR>", { noremap = true, silent = true })
--- keymap('n', '<C-f>', ":FzfLua grep_cword<CR>", { noremap = true, silent = true })
--- keymap('v', '<C-f>',":FzfLua grep_visual<CR>", { noremap = true, silent = true })
--- -- map('n', '<C-l>', ":FzfLua grep_last<CR>", { noremap = true, silent = true })
--- --
--- -- LSP Mappings
--- -- All lsp function are under 'a'
--- -- All lsp diagnostic are under 'd'
--- -- All trouble function are under 't'
--- keymap('n', '<Leader>a', ":FzfLua lsp_code_actions<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>ad', ":FzfLua lsp_definitions<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>aD', ":FzfLua lsp_declarations<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>at', ":FzfLua lsp_typedefs<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>ai', ":FzfLua lsp_implementations<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>ar', ":FzfLua lsp_references<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>as', ":FzfLua lsp_document_symbols<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>aws', ":FzfLua lsp_workspace_symbols<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>ae', ':lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true})
--- keymap('n', '<Leader>aE', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
--- keymap('n', '<Leader>af', ':lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>', {noremap = true, silent = true})
--- keymap('n', '<Leader>d', ":FzfLua lsp_document_diagnostics<CR>", {noremap = true, silent = true})
--- keymap('n', '<Leader>da', ":FzfLua lsp_workspace_diagnostics<CR>", {noremap = true, silent = true})
--- keymap("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {noremap = true, silent = true})
--- keymap("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", {noremap = true, silent = true})
--- keymap("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", {noremap = true, silent = true})
--- }}}
-
-
-
 -- {{{ Telescope
 -- git is under 'g' except list files that is bound to leader-space
 -- rg is under 'r' except grep project that is bound to leader-/
@@ -158,6 +110,7 @@ keymap('n', '<Leader>d', ":Telescope lsp_document_diagnostics<CR>", {noremap = t
 keymap('n', '<Leader>da', ":Telescope lsp_workspace_diagnostics<CR>", {noremap = true, silent = true})
 -- }}}
 
+keymap("n", "<leader>tt", ":TroubleToggle<cr>", {noremap = true, silent = true})
 keymap("n", "<leader>tw", ":TroubleToggle workspace_diagnostics<cr>", {noremap = true, silent = true})
 keymap("n", "<leader>td", ":TroubleToggle document_diagnostics<cr>", {noremap = true, silent = true})
 keymap("n", "<leader>tq", ":TroubleToggle quickfix<cr>", {noremap = true, silent = true})
@@ -170,8 +123,7 @@ keymap("n", "<leader>tq", ":TroubleToggle quickfix<cr>", {noremap = true, silent
 keymap("n", "<leader>cc", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<leader>cc", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
--- Lsp
--- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+-- Code formatting (Lsp)
 keymap("n", "<Tab>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- Search and replace (spectre)

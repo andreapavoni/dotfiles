@@ -3,6 +3,7 @@ export MANPAGER="/usr/bin/less"
 export EDITOR=`which nvim`
 export GIT_EDITOR=$EDITOR
 export NOSE_REDNOSE=1
+export LESS=FRX
 
 export HISTFILE=~/.zsh_histfile
 export HISTCONTROL=ignoredups

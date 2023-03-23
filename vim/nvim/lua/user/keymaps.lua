@@ -20,10 +20,10 @@ vim.g.maplocalleader = ','
 -- Normal --
 
 -- Allow copy paste with macos
-keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
-keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
-keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
-keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true })
+keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true })
+keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true })
+keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true })
 
 
 -- disable K command (:help K)
@@ -95,25 +95,25 @@ keymap('n', '<leader>/', ":Telescope live_grep<CR>", { noremap = true, silent = 
 -- All lsp function are under 'a'
 -- All lsp diagnostic are under 'd'
 -- All trouble function are under 't'
-keymap('n', '<Leader>a', ":lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>ad', ":Telescope lsp_definitions<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>aD', ":Telescope lsp_declarations<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>at', ":Telescope lsp_typedefs<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>ai', ":Telescope lsp_implementations<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>ar', ":Telescope lsp_references<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>as', ":Telescope lsp_document_symbols<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>aws', ":Telescope lsp_workspace_symbols<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>ae', ':lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true})
-keymap('n', '<Leader>aE', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
-keymap('n', '<Leader>af', ':lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>', {noremap = true, silent = true})
-keymap('n', '<Leader>d', ":Telescope lsp_document_diagnostics<CR>", {noremap = true, silent = true})
-keymap('n', '<Leader>da', ":Telescope lsp_workspace_diagnostics<CR>", {noremap = true, silent = true})
+keymap('n', '<Leader>a', ":lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>ad', ":Telescope lsp_definitions<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>aD', ":Telescope lsp_declarations<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>at', ":Telescope lsp_typedefs<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>ai', ":Telescope lsp_implementations<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>ar', ":Telescope lsp_references<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>as', ":Telescope lsp_document_symbols<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>aws', ":Telescope lsp_workspace_symbols<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>ae', ':lua vim.lsp.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>aE', ':lua vim.lsp.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>af', ':lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>d', ":Telescope lsp_document_diagnostics<CR>", { noremap = true, silent = true })
+keymap('n', '<Leader>da', ":Telescope lsp_workspace_diagnostics<CR>", { noremap = true, silent = true })
 -- }}}
 
-keymap("n", "<leader>tt", ":TroubleToggle<cr>", {noremap = true, silent = true})
-keymap("n", "<leader>tw", ":TroubleToggle workspace_diagnostics<cr>", {noremap = true, silent = true})
-keymap("n", "<leader>td", ":TroubleToggle document_diagnostics<cr>", {noremap = true, silent = true})
-keymap("n", "<leader>tq", ":TroubleToggle quickfix<cr>", {noremap = true, silent = true})
+keymap("n", "<leader>tt", ":TroubleToggle<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>tw", ":TroubleToggle workspace_diagnostics<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>td", ":TroubleToggle document_diagnostics<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>tq", ":TroubleToggle quickfix<cr>", { noremap = true, silent = true })
 
 
 -- Git
@@ -125,6 +125,13 @@ keymap("x", "<leader>cc", "<esc><cmd>lua require('Comment.api').toggle.linewise(
 
 -- Code formatting (Lsp)
 keymap("n", "<Tab>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- -- Colde folding
+keymap("n", "<space>", "za<CR>", opts)
+-- keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.fold_open()<CR>", opts)
+-- keymap("n", "<leader>cg", "<cmd>lua vim.lsp.buf.fold_close()<CR>", opts)
+-- keymap("n", "zR", '<cmd>lua require("ufo").openAllFolds()<CR>', opts)
+-- keymap("n", "zM", '<cmd>lua require("ufo").closeAllFolds()<CR>', opts)
 
 -- Search and replace (spectre)
 keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", opts)

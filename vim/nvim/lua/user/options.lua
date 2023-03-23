@@ -59,6 +59,12 @@ vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 -- Sessions
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
+-- Folding
+vim.opt.foldlevel = 20
+vim.opt.foldclose = 'all'
+vim.opt.foldmethod = "indent"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- GUI / Neovide
 vim.opt.guifont = { "FiraCode Nerd Font", ":h15" }
 if vim.g.neovide then

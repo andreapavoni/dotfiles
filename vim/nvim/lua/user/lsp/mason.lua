@@ -15,6 +15,7 @@ local servers = {
 	"gopls",
 	"golangci_lint_ls",
 	"rust_analyzer",
+  "solargraph",
 }
 
 local settings = {

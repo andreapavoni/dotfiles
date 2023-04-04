@@ -23,6 +23,7 @@ require "user.project"
 require "user.illuminate"
 require "user.indentline"
 
--- I want inline errors + quickfix or similar for inspection
 require "user.lsp"
 require "user.codeium"
+require "user.todo-comments"
+require "user.blame_line"

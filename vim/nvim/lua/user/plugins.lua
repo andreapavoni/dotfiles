@@ -97,7 +97,7 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-
+  use { "braxtons12/blame_line.nvim" }
   -- Sessions
   use { 'rmagatti/auto-session' }
 
@@ -106,6 +106,9 @@ return packer.startup(function(use)
 
   -- Search and replace
   use { 'windwp/nvim-spectre' }
+
+  -- Highlight special comments
+  use {"folke/todo-comments.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

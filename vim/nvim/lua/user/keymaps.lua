@@ -42,11 +42,11 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- bubble single lines
-keymap('n', '<C-Up>', 'ddkP', opt)
-keymap('n', '<C-Down>', 'ddp', opt)
+keymap('n', '<C-Up>', 'ddkP', opts)
+keymap('n', '<C-Down>', 'ddp', opts)
 --  bubble multiple lines
-keymap('v', '<C-Up>', 'xkP`[V`]', opt)
-keymap('v', '<C-Down>', 'xp`[V`]', opt)
+keymap('v', '<C-Up>', 'xkP`[V`]', opts)
+keymap('v', '<C-Down>', 'xp`[V`]', opts)
 
 -- navigate buffers
 keymap("n", "<S-Right>", ":bnext<CR>", opts)
@@ -129,12 +129,23 @@ keymap("x", "<leader>cc", "<esc><cmd>lua require('Comment.api').toggle.linewise(
 -- Code formatting (Lsp)
 keymap("n", "<Tab>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
--- -- Colde folding
-keymap("n", "<space>", "za<CR>", opts)
--- keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.fold_open()<CR>", opts)
--- keymap("n", "<leader>cg", "<cmd>lua vim.lsp.buf.fold_close()<CR>", opts)
--- keymap("n", "zR", '<cmd>lua require("ufo").openAllFolds()<CR>', opts)
--- keymap("n", "zM", '<cmd>lua require("ufo").closeAllFolds()<CR>', opts)
+-- Code folding
+-- Toggle current fold
+keymap("n", "<Space>", "za<CR>", opts)
+-- Toggle all folds
+keymap('n', "<S-Space>",
+    function()
+        local get_opt = vim.api.nvim_win_get_option
+        local set_opt = vim.api.nvim_win_set_option
+
+        if get_opt(0, "foldlevel") >= 20 then
+            set_opt(0, "foldlevel", 0)
+        else
+            set_opt(0, "foldlevel", 20)
+        end
+    end,
+opts)
+
 
 -- Search and replace (spectre)
 keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", opts)

@@ -3,12 +3,6 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
 local HEIGHT_RATIO = 0.8 -- You can change this
 local WIDTH_RATIO = 0.5  -- You can change this too
 
@@ -136,17 +130,6 @@ nvim_tree.setup {
     },
   },
   view = {
-    -- width = 35,
-    -- side = "right",
-    -- mappings = {
-    --   list = {
-    --     { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-    --     { key = "?",                  cb = tree_cb "toggle_help" },
-    --     { key = "h",                  cb = tree_cb "close_node" },
-    --     { key = "v",                  cb = tree_cb "vsplit" },
-    --     { key = ".",                  cb = tree_cb "cd" },
-    --   },
-    -- },
     float = {
       enable = true,
       open_win_config = function()

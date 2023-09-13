@@ -79,12 +79,14 @@ keymap("n", "\\", ":NvimTreeToggle<CR>", opts)
 -- git is under 'g' except list files that is bound to leader-space
 -- rg is under 'r' except grep project that is bound to leader-/
 --
+-- Buffers
+keymap('n', '<leader><Space>', ":Telescope buffers<CR>", { noremap = true, silent = true })
 -- Files
 keymap('n', '<leader><leader>', ":Telescope find_files<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>k', ":Telescope keymaps<CR>", { noremap = true, silent = true })
-keymap('n', '<leader><Space>', ":Telescope git_files<CR>", { noremap = true, silent = true })
+-- keymap('n', '<leader><Space>', ":Telescope git_files<CR>", { noremap = true, silent = true })
 -- Git
-keymap('n', '<leader>g', ":Telescope git_bcommits<CR>", { noremap = true, silent = true })
+keymap('n', '<leader>g', ":Telescope git_files<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>gs', ":Telescope git_status<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>gp', ":Telescope git_commits<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>gb', ":Telescope git_branches<CR>", { noremap = true, silent = true })

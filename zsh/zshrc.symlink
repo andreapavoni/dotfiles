@@ -35,3 +35,6 @@ for zdir in $( find $ZSH -type d -name zfunctions ); do
 done
 
 unset config_files
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

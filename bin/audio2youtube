@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+BASENAME=$(basename -s .mp3 "$1")
+
+# ffmpeg -loop 1 -r 1 -i pic.jpg -i audio.mp3 -c:a copy -shortest -c:v libx264 output.mp4
+
+
+
+# ffmpeg -i "$1" -an "$BASENAME.png" && ffmpeg -loop 1 -i "$BASENAME.png" -i "$1" -c:a aac -ab 256k -c:v libx264 -pix_fmt yuv420p -shortest -strict -2 "$BASENAME.mp4"
+# ffmpeg -i "$1" -an "$BASENAME.png" && ffmpeg -loop 1 -r 1 -i "$BASENAME.png" -i "$1" -c:a copy -shortest -strict -2 -c:v libx264 "$BASENAME.mp4"
+ffmpeg -i "$1" -an "$BASENAME.png" && ffmpeg -loop 1 -i "$BASENAME.png" -i "$1" -shortest -acodec copy "$BASENAME.mp4"

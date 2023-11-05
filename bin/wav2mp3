@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+BASENAME=$(basename -s .wav "$1")
+
+if [ -f "$BASENAME.png" ]; then
+  ffmpeg -i "$BASENAME.png" -i "$1" -vn -ar 44100 -ac 2 -acodec libmp3lame -b:a 320k "$BASENAME.mp3"
+else
+  echo "Warning: no cover image ($BASENAME.png) found for $1"
+  ffmpeg -i "$1" -vn -ar 44100 -ac 2 -acodec libmp3lame -b:a 320k "$BASENAME.mp3"
+fi

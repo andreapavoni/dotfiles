@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find . -type f -iname "*.aiff" -exec bash -c 'FILE="$1"; ffmpeg -i "${FILE}" -ar 44100 -ac 2 -b:a 320k "${FILE%.aiff}.mp3";' _ '{}' \;

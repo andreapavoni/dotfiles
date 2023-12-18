@@ -8,6 +8,14 @@ if not status_ok then
   return
 end
 
+
+local status_ok, ts_comment_string = pcall(require, "ts_context_commentstring")
+if not status_ok then
+  return
+end
+vim.g.skip_ts_context_commentstring_module = true
+ts_comment_string.setup {}
+
 configs.setup {
 	-- one of "all", or a list of languages
 	ensure_installed = {"go", "elixir", "rust", "python", "markdown", "markdown_inline", "yaml", "toml", "javascript", "json", "lua"},

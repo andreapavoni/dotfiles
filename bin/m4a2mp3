@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Takes a filename as parameter and converts it from M4A to MP3, respecting the bitrate.
+#
+# Based on https://superuser.com/a/1211902/127382 by @jbowman (2017)
+# adapted by Andrea Pavoni (2024)
+
+if [ -f "${1}" ]
+then
+        echo "Converting \"${1}\"..."
+else
+        echo "File not found! Please add it as a parameter, e.g.:"
+        echo "  ${0} path/to/file.m4a"
+        exit 1
+fi
+
+echo "Before ffprobe... testing $1"
+bitrate=$(ffprobe -v quiet -of flat=s=_ -show_entries format=bit_rate "$1" | sed 's/[^0-9]*//g')
+new_filename=$(basename "$1" .m4a).mp3
+echo "Reading $1 and writing to ${new_filename} with bitrate ${bitrate}..."
+echo ffmpeg -y -i "$1" -codec:a libmp3lame -b:a "${bitrate}" -q:a 2 "${new_filename}"
+ffmpeg -y -i "$1" -codec:a libmp3lame -b:a "${bitrate}" -q:a 2 "${new_filename}"

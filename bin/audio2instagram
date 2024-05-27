@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if [ "$#" -ne 3 ]; then
+  echo "Usage: $0 <audio file> <clip start> <clip duration>"
+  exit 1
+fi
+
+BASENAME=$(basename -s .mp3 "$1")
+CLIP_START=$2
+CLIP_DURATION=$3
+
+ffmpeg -i "$1" -an "$BASENAME.png" && \  
+ffmpeg -ss "$CLIP_START" -t "$CLIP_DURATION" -i "$1" -acodec copy  "$1_clip.mp3" && \  
+ffmpeg -i "$1_clip.mp3" -loop 1 -i "$BASENAME.png" -c:a aac -b:a 256k -ar 44100 -c:v libx264 -pix_fmt yuv420p -preset faster -tune stillimage -shortest "$BASENAME-clip.mp4"
